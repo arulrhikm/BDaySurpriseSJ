@@ -176,7 +176,7 @@ body { background: #0a2540; }
   overflow: hidden;
 }
 .sticker {
-  position: absolute; pointer-events: none;
+  position: absolute; pointer-events: auto; cursor: pointer;
   animation: stitchIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.15));
 }
@@ -751,7 +751,6 @@ document.getElementById('close-btn').addEventListener('click', function(e) {
   letterContainer.classList.remove('visible');
   document.getElementById('sticker-layer').innerHTML = '';
   stickerCount = 0;
-  document.getElementById('sticker-counter').textContent = '';
   setTimeout(showEnvelope, 500);
 });
 
@@ -789,6 +788,11 @@ letter.addEventListener('click', function(e) {
   var y = e.clientY - rect.top + letter.scrollTop;
   var sticker = document.createElement('span');
   sticker.className = 'sticker';
+  sticker.addEventListener('click', function(ev) {
+    ev.stopPropagation();
+    sticker.remove();
+    stickerCount--;
+  });
   var img = document.createElement('img');
   img.src = STICKER_IMAGES[Math.floor(Math.random() * STICKER_IMAGES.length)];
   sticker.appendChild(img);
@@ -809,14 +813,20 @@ document.getElementById('nap-btn').addEventListener('click', function(e) {
   isNapping = true;
   document.getElementById('nap-overlay').classList.add('active');
   if (napFilter) napFilter.frequency.linearRampToValueAtTime(300, audioCtx.currentTime + 1);
-  if (ytReady && ytPlayer && ytPlayer.setVolume) ytPlayer.setVolume(15);
+  if (ytReady && ytPlayer && ytPlayer.setVolume) {
+    ytPlayer.setVolume(15);
+    setTimeout(function() { if (isNapping) ytPlayer.setVolume(15); }, 500);
+  }
 });
 
 document.getElementById('nap-overlay').addEventListener('click', function() {
   isNapping = false;
   document.getElementById('nap-overlay').classList.remove('active');
   if (napFilter) napFilter.frequency.linearRampToValueAtTime(20000, audioCtx.currentTime + 0.5);
-  if (ytReady && ytPlayer && ytPlayer.setVolume) ytPlayer.setVolume(100);
+  if (ytReady && ytPlayer && ytPlayer.setVolume) {
+    ytPlayer.setVolume(100);
+    setTimeout(function() { if (!isNapping) ytPlayer.setVolume(100); }, 500);
+  }
 });
 </script>
 </body>
