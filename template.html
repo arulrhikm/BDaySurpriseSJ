@@ -294,7 +294,7 @@
       font-family: 'Reenie Beanie', cursive;
       font-size: 36px;
       color: #C97D4E;
-      margin-bottom: -10px;
+      margin-bottom: -20px;
       text-shadow: 1px 1px 0 rgba(201, 125, 78, 0.15);
     }
 
@@ -305,7 +305,7 @@
       color: #5C3A1E;
       line-height: 1.6;
       min-height: 80px;
-      padding: 12px 8px;
+      padding: 0px 8px;
       white-space: pre-wrap;
     }
 
@@ -686,6 +686,18 @@
     var STICKER_IMAGES = __STICKERS_ARRAY__;
 
     // AUDIO
+    var catBuffer = null;
+    var dogBuffer = null;
+
+    function loadB64Audio(b64Data, cb) {
+      if (!audioCtx) return;
+      var raw = window.atob(b64Data.split(',')[1]);
+      var len = raw.length;
+      var bytes = new Uint8Array(len);
+      for (var i = 0; i < len; i++) bytes[i] = raw.charCodeAt(i);
+      audioCtx.decodeAudioData(bytes.buffer, cb, function(err) { console.error(err); });
+    }
+
     function initAudio() {
       if (audioCtx) return;
       audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -697,6 +709,9 @@
       napFilter.Q.value = 0.5;
       masterGain.connect(napFilter);
       napFilter.connect(audioCtx.destination);
+      
+      loadB64Audio('__CAT_AUDIO_B64__', function(b) { catBuffer = b; });
+      loadB64Audio('__DOG_AUDIO_B64__', function(b) { dogBuffer = b; });
     }
 
     // Start YouTube audio via IFrame API
@@ -730,56 +745,25 @@
       }
     }
 
-    // Pet sounds via Web Audio API
+    // Pet sounds via Web Audio API (Using Decoded MP3s)
     function playMeow() {
       if (!audioCtx) initAudio();
-      // Cat meow: descending sine sweep
-      var osc = audioCtx.createOscillator();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(800, audioCtx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.3);
-      var g = audioCtx.createGain();
-      g.gain.setValueAtTime(0.25, audioCtx.currentTime);
-      g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.35);
-      osc.connect(g); g.connect(masterGain);
-      osc.start(); osc.stop(audioCtx.currentTime + 0.4);
-      // Second harmonic for realism
-      var osc2 = audioCtx.createOscillator();
-      osc2.type = 'sine';
-      osc2.frequency.setValueAtTime(1200, audioCtx.currentTime + 0.05);
-      osc2.frequency.exponentialRampToValueAtTime(600, audioCtx.currentTime + 0.25);
-      var g2 = audioCtx.createGain();
-      g2.gain.setValueAtTime(0.12, audioCtx.currentTime + 0.05);
-      g2.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
-      osc2.connect(g2); g2.connect(masterGain);
-      osc2.start(audioCtx.currentTime + 0.05); osc2.stop(audioCtx.currentTime + 0.35);
+      if (catBuffer) {
+        var src = audioCtx.createBufferSource();
+        src.buffer = catBuffer;
+        src.connect(masterGain);
+        src.start();
+      }
     }
 
     function playWoof() {
       if (!audioCtx) initAudio();
-      // Dog bark: quick noise burst + low tone
-      var len = Math.floor(audioCtx.sampleRate * 0.12);
-      var buf = audioCtx.createBuffer(1, len, audioCtx.sampleRate);
-      var d = buf.getChannelData(0);
-      for (var i = 0; i < len; i++) {
-        d[i] = (Math.random() * 2 - 1) * Math.exp(-i / (len * 0.15)) * 0.5;
+      if (dogBuffer) {
+        var src = audioCtx.createBufferSource();
+        src.buffer = dogBuffer;
+        src.connect(masterGain);
+        src.start();
       }
-      var src = audioCtx.createBufferSource(); src.buffer = buf;
-      var bp = audioCtx.createBiquadFilter(); bp.type = 'bandpass';
-      bp.frequency.value = 300; bp.Q.value = 2;
-      var g = audioCtx.createGain(); g.gain.value = 0.3;
-      src.connect(bp); bp.connect(g); g.connect(masterGain);
-      src.start();
-      // Low tone
-      var osc = audioCtx.createOscillator();
-      osc.type = 'sawtooth';
-      osc.frequency.setValueAtTime(180, audioCtx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(120, audioCtx.currentTime + 0.15);
-      var g2 = audioCtx.createGain();
-      g2.gain.setValueAtTime(0.15, audioCtx.currentTime);
-      g2.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.18);
-      osc.connect(g2); g2.connect(masterGain);
-      osc.start(); osc.stop(audioCtx.currentTime + 0.2);
     }
 
     // Typewriter tick

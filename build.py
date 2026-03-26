@@ -32,12 +32,17 @@ stickers_js = json.dumps(sticker_uris)
 with open(os.path.join(DIR, 'template.html'), 'r', encoding='utf-8') as f:
     template = f.read()
 
+dog_audio_b64 = "data:audio/mp3;base64," + b64(os.path.join(DIR, 'audio', 'freesound_community-single-dog-bark-king-charles-spaniel-41366.mp3'))
+cat_audio_b64 = "data:audio/mp3;base64," + b64(os.path.join(DIR, 'audio', 'dragon-studio-cute-cat-meow-472372.mp3'))
+
 html = (template
     .replace('__CAT_B64__', cat_b64)
     .replace('__DOG_B64__', dog_b64)
     .replace('__STICKERS_ARRAY__', stickers_js)
+    .replace('__CAT_AUDIO_B64__', cat_audio_b64)
+    .replace('__DOG_AUDIO_B64__', dog_audio_b64)
 )
 
 with open(os.path.join(DIR, 'index.html'), 'w', encoding='utf-8') as f:
     f.write(html)
-print(f'Built V6 index.html ({len(html)} chars, {len(sticker_uris)} stickers)')
+print(f'Built V7 index.html ({len(html)} chars, {len(sticker_uris)} stickers)')
