@@ -294,7 +294,7 @@
       font-family: 'Reenie Beanie', cursive;
       font-size: 36px;
       color: #C97D4E;
-      margin-bottom: 8px;
+      margin-bottom: -10px;
       text-shadow: 1px 1px 0 rgba(201, 125, 78, 0.15);
     }
 
@@ -794,6 +794,45 @@
       src.connect(g); g.connect(masterGain); src.start();
     }
 
+    function playSplash() {
+      if (!audioCtx) initAudio();
+      var osc = audioCtx.createOscillator();
+      var g = audioCtx.createGain();
+      osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(150, audioCtx.currentTime + 0.15);
+      g.gain.setValueAtTime(0, audioCtx.currentTime);
+      g.gain.linearRampToValueAtTime(0.3, audioCtx.currentTime + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
+      osc.connect(g); g.connect(masterGain);
+      osc.start(); osc.stop(audioCtx.currentTime + 0.15);
+    }
+
+    function playStickerAdd() {
+      if (!audioCtx) initAudio();
+      var osc = audioCtx.createOscillator();
+      var g = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(900, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.05);
+      g.gain.setValueAtTime(0.15, audioCtx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.08);
+      osc.connect(g); g.connect(masterGain);
+      osc.start(); osc.stop(audioCtx.currentTime + 0.1);
+    }
+
+    function playStickerRemove() {
+      if (!audioCtx) initAudio();
+      var osc = audioCtx.createOscillator();
+      var g = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(1200, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(600, audioCtx.currentTime + 0.08);
+      g.gain.setValueAtTime(0.15, audioCtx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+      osc.connect(g); g.connect(masterGain);
+      osc.start(); osc.stop(audioCtx.currentTime + 0.1);
+    }
+
     // ====== OCEAN + FISH CANVAS ======
     var canvas = document.getElementById('water');
     var ctx = canvas.getContext('2d');
@@ -999,12 +1038,14 @@
     }
     drawPond();
 
-    // Click anywhere: ripple on pond + scare fish
+    // Click anywhere: ripple on pond + scare fish + splash
     document.addEventListener('click', function (e) {
+      if (e.target.closest('#letter-container.visible')) return;
       initAudio();
       startYTAudio();
       pondRipples.push({ x: e.clientX, y: e.clientY, age: 0 });
       scareFishNear(e.clientX, e.clientY);
+      playSplash();
     });
 
     // ENVELOPE
@@ -1124,6 +1165,7 @@
         ev.stopPropagation();
         sticker.remove();
         stickerCount--;
+        playStickerRemove();
       });
       var img = document.createElement('img');
       img.src = STICKER_IMAGES[Math.floor(Math.random() * STICKER_IMAGES.length)];
@@ -1135,6 +1177,7 @@
       hoop.className = 'sticker-hoop';
       hoop.style.left = x + 'px'; hoop.style.top = y + 'px';
       stickerLayer.appendChild(hoop);
+      playStickerAdd();
       setTimeout(function () { hoop.remove(); }, 600);
     });
 
