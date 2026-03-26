@@ -619,7 +619,7 @@
   <canvas id="water"></canvas>
 
   <!-- YouTube Koi Pond audio - hidden iframe -->
-  <div id="yt-audio"></div>
+  <iframe id="yt-audio" allow="autoplay" style="position:fixed; top:-9999px; width:1px; height:1px;" src="https://www.youtube.com/embed/97G5esCpJsY?enablejsapi=1&autoplay=1&loop=1&playlist=97G5esCpJsY&controls=0&showinfo=0&modestbranding=1"></iframe>
   <script src="https://www.youtube.com/iframe_api"></script>
 
   <div id="envelope-container">
@@ -815,6 +815,26 @@
       g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
       osc.connect(g); g.connect(masterGain);
       osc.start(); osc.stop(audioCtx.currentTime + 0.1);
+    }
+
+    function playOpenLetter() {
+      if (!audioCtx) initAudio();
+      // Paper crunch / rustle: quick overlapping white noise bursts
+      for (var j = 0; j < 5; j++) {
+        var len = Math.floor(audioCtx.sampleRate * 0.05);
+        var buf = audioCtx.createBuffer(1, len, audioCtx.sampleRate);
+        var d = buf.getChannelData(0);
+        for (var i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * 0.3;
+        var src = audioCtx.createBufferSource(); src.buffer = buf;
+        var bp = audioCtx.createBiquadFilter();
+        bp.type = 'highpass'; bp.frequency.value = 1000 + Math.random() * 800;
+        var g = audioCtx.createGain();
+        g.gain.setValueAtTime(0, audioCtx.currentTime + j * 0.08);
+        g.gain.linearRampToValueAtTime(0.15 + Math.random() * 0.1, audioCtx.currentTime + j * 0.08 + 0.01);
+        g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + j * 0.08 + 0.05);
+        src.connect(bp); bp.connect(g); g.connect(masterGain);
+        src.start(audioCtx.currentTime + j * 0.08);
+      }
     }
 
     // ====== OCEAN + FISH CANVAS ======
@@ -1052,6 +1072,7 @@
       initAudio();
       startYTAudio();
       envelope.classList.add('open');
+      playOpenLetter();
       setTimeout(function () {
         envelopeContainer.classList.remove('visible');
         setTimeout(function () {
