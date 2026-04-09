@@ -1,0 +1,19 @@
+{
+  "recipient_name": "Mommy",
+  "message": "Happy 50th Birthday, Mommy.\nWith love and deep respect, I wish you good health, peace, and happiness in the years ahead.\nThank you for your strength, care, and everything you do for our family.",
+  "cat_name": "Silky",
+  "dog_name": "Ralph",
+  "cat_image": "pets/cat.png",
+  "dog_image": "pets/dog.png",
+  "background": {
+    "top": "#231942",
+    "mid_1": "#5e548e",
+    "mid_2": "#4a4e69",
+    "bottom": "#22223b"
+  },
+  "scene_mode": "city_night",
+  "yt_ambience": {
+    "night_video_id": "2SgHir9O7xw",
+    "day_video_id": "ASsP9mlwUas"
+  }
+}

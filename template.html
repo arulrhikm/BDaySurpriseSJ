@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday Shalini!</title>
-  <meta name="description" content="A cozy island birthday letter for Shalini">
+  <title>Happy Birthday __RECIPIENT_NAME__!</title>
+  <meta name="description" content="A cozy island birthday letter for __RECIPIENT_NAME__">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Reenie+Beanie&display=swap"
     rel="stylesheet">
@@ -336,73 +336,6 @@
       }
     }
 
-    /* STICKER LAYER */
-    #sticker-layer {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 5;
-      overflow: hidden;
-    }
-
-    .sticker {
-      position: absolute;
-      pointer-events: auto;
-      cursor: pointer;
-      animation: stitchIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-      filter: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.15));
-    }
-
-    .sticker img {
-      width: 44px;
-      height: 44px;
-      object-fit: contain;
-    }
-
-    @keyframes stitchIn {
-      0% {
-        transform: scale(0) rotate(-20deg);
-        opacity: 0;
-      }
-
-      60% {
-        transform: scale(1.2) rotate(5deg);
-        opacity: 1;
-      }
-
-      80% {
-        transform: scale(0.9) rotate(-2deg);
-      }
-
-      100% {
-        transform: scale(1) rotate(0deg);
-        opacity: 1;
-      }
-    }
-
-    .sticker-hoop {
-      position: absolute;
-      width: 50px;
-      height: 50px;
-      border: 3px dashed rgba(201, 125, 78, 0.5);
-      border-radius: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      pointer-events: none;
-      animation: hoopFlash 0.6s ease-out forwards;
-    }
-
-    @keyframes hoopFlash {
-      0% {
-        transform: translate(-50%, -50%) scale(0.3);
-        opacity: 1;
-      }
-
-      100% {
-        transform: translate(-50%, -50%) scale(1.5);
-        opacity: 0;
-      }
-    }
-
     #close-btn {
       position: absolute;
       top: 8px;
@@ -422,115 +355,6 @@
     #close-btn:hover {
       background: rgba(201, 125, 78, 0.12);
       transform: scale(1.05);
-    }
-
-    #nap-btn {
-      position: absolute;
-      bottom: 12px;
-      right: 16px;
-      background: transparent;
-      border: 2px dashed #C97D4E;
-      border-radius: 12px;
-      padding: 6px 14px;
-      font-family: 'Caveat', cursive;
-      font-size: 18px;
-      color: #8B5E3C;
-      cursor: pointer;
-      transition: all 0.3s;
-      z-index: 30;
-    }
-
-    #nap-btn:hover {
-      background: rgba(201, 125, 78, 0.12);
-      transform: scale(1.05);
-    }
-
-    #nap-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 25, 40, 0.75);
-      z-index: 100;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.8s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-
-    #nap-overlay.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .zzz {
-      position: absolute;
-      font-family: 'Caveat', cursive;
-      font-size: 48px;
-      color: rgba(255, 255, 255, 0.6);
-      animation: zzzFloat 3s ease-in-out infinite;
-      pointer-events: none;
-    }
-
-    .zzz:nth-child(1) {
-      left: 35%;
-      animation-delay: 0s;
-      font-size: 36px;
-    }
-
-    .zzz:nth-child(2) {
-      left: 50%;
-      animation-delay: 0.8s;
-      font-size: 52px;
-    }
-
-    .zzz:nth-child(3) {
-      left: 65%;
-      animation-delay: 1.6s;
-      font-size: 40px;
-    }
-
-    .zzz:nth-child(4) {
-      left: 42%;
-      animation-delay: 2.2s;
-      font-size: 30px;
-    }
-
-    .zzz:nth-child(5) {
-      left: 58%;
-      animation-delay: 0.4s;
-      font-size: 44px;
-    }
-
-    @keyframes zzzFloat {
-      0% {
-        transform: translateY(60vh) rotate(0deg);
-        opacity: 0;
-      }
-
-      15% {
-        opacity: 0.7;
-      }
-
-      85% {
-        opacity: 0.7;
-      }
-
-      100% {
-        transform: translateY(-20vh) rotate(15deg);
-        opacity: 0;
-      }
-    }
-
-    .nap-text {
-      font-family: 'Caveat', cursive;
-      font-size: 28px;
-      color: rgba(255, 255, 255, 0.5);
-      position: absolute;
-      bottom: 60px;
-      text-align: center;
-      width: 100%;
     }
 
     /* Sound bubble for pet sounds */
@@ -619,7 +443,7 @@
   <canvas id="water"></canvas>
 
   <!-- YouTube Koi Pond audio - hidden iframe -->
-  <iframe id="yt-audio" allow="autoplay" style="position:fixed; top:-9999px; width:1px; height:1px;" src="https://www.youtube.com/embed/97G5esCpJsY?enablejsapi=1&autoplay=1&loop=1&playlist=97G5esCpJsY&controls=0&showinfo=0&modestbranding=1"></iframe>
+  <iframe id="yt-audio" allow="autoplay" style="position:fixed; top:-9999px; width:1px; height:1px;" src="https://www.youtube.com/embed/__YT_NIGHT_ID__?enablejsapi=1&autoplay=1&loop=1&playlist=__YT_NIGHT_ID__&controls=0&showinfo=0&modestbranding=1"></iframe>
   <script src="https://www.youtube.com/iframe_api"></script>
 
   <div id="envelope-container">
@@ -634,56 +458,40 @@
 
   <div id="letter-container">
     <div id="letter">
-      <div id="sticker-layer"></div>
       <button id="close-btn">&#x2715; close</button>
 
       <div class="pet-row">
         <div class="pet-card" id="cat-card">
           <div class="pet-photo-wrapper">
-            <img class="pet-photo" src="data:image/png;base64,__CAT_B64__" alt="Rue the cat">
+            <img class="pet-photo" src="data:image/png;base64,__CAT_B64__" alt="__CAT_NAME__ the cat">
           </div>
-          <span class="pet-name">&#x1F431; Rue</span>
+          <span class="pet-name">&#x1F431; __CAT_NAME__</span>
         </div>
         <div class="pet-card" id="dog-card">
           <div class="pet-photo-wrapper">
-            <img class="pet-photo" src="data:image/png;base64,__DOG_B64__" alt="Wanda the dog">
+            <img class="pet-photo" src="data:image/png;base64,__DOG_B64__" alt="__DOG_NAME__ the dog">
           </div>
-          <span class="pet-name">&#x1F436; Wanda</span>
+          <span class="pet-name">&#x1F436; __DOG_NAME__</span>
         </div>
       </div>
 
-      <div class="greeting">Dear Shalini &#x1F495;</div>
+      <div class="greeting">Dear __RECIPIENT_NAME__ &#x1F495;</div>
 
       <div class="message-area" id="message-area">
         <span id="message-text"></span><span class="message-cursor" id="cursor">|</span>
       </div>
 
-      <button id="nap-btn">&#x1F634; nap</button>
     </div>
-  </div>
-
-  <div id="nap-overlay">
-    <span class="zzz">z</span><span class="zzz">Z</span>
-    <span class="zzz">z</span><span class="zzz">Z</span>
-    <span class="zzz">z</span>
-    <div class="nap-text">tap to wake up...</div>
   </div>
 
   <script>
     // STATE
     var audioCtx = null;
     var masterGain = null;
-    var napFilter = null;
-    var stickerCount = 0;
-    var MAX_STICKERS = 15;
-    var MESSAGE = "Happy Birthday to my favorite tweaker (\u00b03\u00b0)!\nMay you one day wake from a nap feeling as cozy and refreshed as you deserve :3";
-    var isNapping = false;
+    var MESSAGE = __MESSAGE_TEXT__;
     var typewriterInterval = null;
     var typeIndex = 0;
     var ytStarted = false;
-
-    // Sticker image data URIs (provided by user)
-    var STICKER_IMAGES = __STICKERS_ARRAY__;
 
     // AUDIO
     var catBuffer = null;
@@ -691,7 +499,9 @@
 
     function loadB64Audio(b64Data, cb) {
       if (!audioCtx) return;
+      if (!b64Data || b64Data.indexOf(',') === -1) return;
       var raw = window.atob(b64Data.split(',')[1]);
+      if (!raw || raw.length === 0) return;
       var len = raw.length;
       var bytes = new Uint8Array(len);
       for (var i = 0; i < len; i++) bytes[i] = raw.charCodeAt(i);
@@ -703,12 +513,7 @@
       audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       masterGain = audioCtx.createGain();
       masterGain.gain.value = 0.5;
-      napFilter = audioCtx.createBiquadFilter();
-      napFilter.type = 'lowpass';
-      napFilter.frequency.value = 20000;
-      napFilter.Q.value = 0.5;
-      masterGain.connect(napFilter);
-      napFilter.connect(audioCtx.destination);
+      masterGain.connect(audioCtx.destination);
       
       loadB64Audio('__CAT_AUDIO_B64__', function(b) { catBuffer = b; });
       loadB64Audio('__DOG_AUDIO_B64__', function(b) { dogBuffer = b; });
@@ -717,13 +522,14 @@
     // Start YouTube audio via IFrame API
     var ytPlayer = null;
     var ytReady = false;
+    var currentYtVideoId = YT_NIGHT_ID;
 
     function onYouTubeIframeAPIReady() {
       ytPlayer = new YT.Player('yt-audio', {
         height: '1',
         width: '1',
-        videoId: '97G5esCpJsY',
-        playerVars: { 'autoplay': 1, 'loop': 1, 'playlist': '97G5esCpJsY', 'controls': 0, 'showinfo': 0, 'modestbranding': 1 },
+        videoId: currentYtVideoId,
+        playerVars: { 'autoplay': 1, 'loop': 1, 'playlist': currentYtVideoId, 'controls': 0, 'showinfo': 0, 'modestbranding': 1 },
         events: {
           'onReady': function (event) {
             ytReady = true;
@@ -743,6 +549,16 @@
         ytPlayer.playVideo();
         ytPlayer.setVolume(100);
       }
+    }
+
+    function switchYTAmbience(videoId) {
+      if (!videoId || !ytReady || !ytPlayer || !ytPlayer.loadVideoById) return;
+      if (currentYtVideoId === videoId) return;
+      currentYtVideoId = videoId;
+      ytPlayer.loadVideoById({ videoId: videoId });
+      if (ytPlayer.setLoop) ytPlayer.setLoop(true);
+      if (ytPlayer.setVolume) ytPlayer.setVolume(100);
+      if (ytPlayer.playVideo) ytPlayer.playVideo();
     }
 
     // Pet sounds via Web Audio API (Using Decoded MP3s)
@@ -778,45 +594,6 @@
       src.connect(g); g.connect(masterGain); src.start();
     }
 
-    function playSplash() {
-      if (!audioCtx) initAudio();
-      var osc = audioCtx.createOscillator();
-      var g = audioCtx.createGain();
-      osc.frequency.setValueAtTime(600, audioCtx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(150, audioCtx.currentTime + 0.15);
-      g.gain.setValueAtTime(0, audioCtx.currentTime);
-      g.gain.linearRampToValueAtTime(0.3, audioCtx.currentTime + 0.02);
-      g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
-      osc.connect(g); g.connect(masterGain);
-      osc.start(); osc.stop(audioCtx.currentTime + 0.15);
-    }
-
-    function playStickerAdd() {
-      if (!audioCtx) initAudio();
-      var osc = audioCtx.createOscillator();
-      var g = audioCtx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(900, audioCtx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.05);
-      g.gain.setValueAtTime(0.15, audioCtx.currentTime);
-      g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.08);
-      osc.connect(g); g.connect(masterGain);
-      osc.start(); osc.stop(audioCtx.currentTime + 0.1);
-    }
-
-    function playStickerRemove() {
-      if (!audioCtx) initAudio();
-      var osc = audioCtx.createOscillator();
-      var g = audioCtx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(1200, audioCtx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(600, audioCtx.currentTime + 0.08);
-      g.gain.setValueAtTime(0.15, audioCtx.currentTime);
-      g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
-      osc.connect(g); g.connect(masterGain);
-      osc.start(); osc.stop(audioCtx.currentTime + 0.1);
-    }
-
     function playOpenLetter() {
       if (!audioCtx) initAudio();
       // Paper crunch / rustle: quick overlapping white noise bursts
@@ -841,9 +618,77 @@
     var canvas = document.getElementById('water');
     var ctx = canvas.getContext('2d');
     var time = 0;
+    var SCENE_MODE = '__SCENE_MODE__';
+    var YT_NIGHT_ID = '__YT_NIGHT_ID__';
+    var YT_DAY_ID = '__YT_DAY_ID__';
+    var cityIsDay = false;
     var pondRipples = [];
+    var cityBuildings = [];
+    var cityStars = [];
+    var cityClouds = [];
+    var celestial = { x: 0, y: 0, r: 18 };
 
-    function resizeCanvas() { canvas.width = innerWidth; canvas.height = innerHeight; }
+    function setupCity() {
+      cityBuildings = [];
+      cityStars = [];
+      cityClouds = [];
+      var w = canvas.width, h = canvas.height;
+      var x = 0;
+      while (x < w) {
+        var bw = 50 + Math.random() * 70;
+        var bh = h * (0.22 + Math.random() * 0.45);
+        var building = {
+          x: x,
+          y: h - bh,
+          w: bw,
+          h: bh,
+          color: ['#1f2937', '#111827', '#0f172a', '#1e1b4b'][Math.floor(Math.random() * 4)],
+          windows: []
+        };
+        var cols = Math.max(2, Math.floor((bw - 16) / 14));
+        var rows = Math.max(3, Math.floor((bh - 20) / 16));
+        for (var r = 0; r < rows; r++) {
+          for (var c = 0; c < cols; c++) {
+            var wx = x + 8 + c * 14;
+            var wy = h - bh + 10 + r * 16;
+            building.windows.push({
+              x: wx,
+              y: wy,
+              w: 8,
+              h: 10,
+              lit: Math.random() > 0.65
+            });
+          }
+        }
+        cityBuildings.push(building);
+        x += bw + 8;
+      }
+      for (var i = 0; i < 90; i++) {
+        cityStars.push({
+          x: Math.random() * w,
+          y: Math.random() * h * 0.6,
+          r: 0.5 + Math.random() * 1.2,
+          tw: Math.random() * Math.PI * 2
+        });
+      }
+    }
+
+    function addDayCloud(x, y) {
+      cityClouds.push({
+        x: x,
+        y: y,
+        w: 40 + Math.random() * 55,
+        h: 16 + Math.random() * 12,
+        drift: (Math.random() - 0.5) * 0.15
+      });
+      if (cityClouds.length > 18) cityClouds.shift();
+    }
+
+    function resizeCanvas() {
+      canvas.width = innerWidth;
+      canvas.height = innerHeight;
+      if (SCENE_MODE === 'city_night') setupCity();
+    }
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
@@ -971,10 +816,10 @@
 
       // Ocean gradient
       var grad = ctx.createLinearGradient(0, 0, 0, h);
-      grad.addColorStop(0, '#0e3d5e');
-      grad.addColorStop(0.3, '#0e4a6a');
-      grad.addColorStop(0.6, '#0b3a55');
-      grad.addColorStop(1, '#071f33');
+      grad.addColorStop(0, '__BG_TOP__');
+      grad.addColorStop(0.3, '__BG_MID_1__');
+      grad.addColorStop(0.6, '__BG_MID_2__');
+      grad.addColorStop(1, '__BG_BOTTOM__');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, w, h);
 
@@ -1040,16 +885,134 @@
 
       requestAnimationFrame(drawPond);
     }
-    drawPond();
 
-    // Click anywhere: ripple on pond + scare fish + splash
+    function drawCityNight() {
+      var w = canvas.width, h = canvas.height;
+      time += 0.008;
+      var sky = ctx.createLinearGradient(0, 0, 0, h);
+      if (cityIsDay) {
+        sky.addColorStop(0, '#87ceeb');
+        sky.addColorStop(0.5, '#b9e6ff');
+        sky.addColorStop(1, '#e6f6ff');
+      } else {
+        sky.addColorStop(0, '__BG_TOP__');
+        sky.addColorStop(0.45, '__BG_MID_1__');
+        sky.addColorStop(0.75, '__BG_MID_2__');
+        sky.addColorStop(1, '__BG_BOTTOM__');
+      }
+      ctx.fillStyle = sky;
+      ctx.fillRect(0, 0, w, h);
+
+      // moon glow
+      var moonX = w * 0.82;
+      var moonY = h * 0.2;
+      celestial.x = moonX;
+      celestial.y = moonY;
+      var moonGlow = ctx.createRadialGradient(moonX, moonY, 8, moonX, moonY, 70);
+      moonGlow.addColorStop(0, cityIsDay ? 'rgba(255, 235, 150, 0.9)' : 'rgba(255, 243, 200, 0.95)');
+      moonGlow.addColorStop(1, 'rgba(255, 243, 200, 0)');
+      ctx.fillStyle = moonGlow;
+      ctx.beginPath();
+      ctx.arc(moonX, moonY, 70, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = cityIsDay ? 'rgba(255, 207, 64, 0.98)' : 'rgba(255, 247, 220, 0.95)';
+      ctx.beginPath();
+      ctx.arc(moonX, moonY, 18, 0, Math.PI * 2);
+      ctx.fill();
+
+      if (!cityIsDay) {
+        for (var si = 0; si < cityStars.length; si++) {
+          var star = cityStars[si];
+          var twinkle = 0.5 + 0.5 * Math.sin(time * 2 + star.tw);
+          ctx.fillStyle = 'rgba(255, 255, 255, ' + (0.3 + twinkle * 0.6) + ')';
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      } else {
+        for (var ci = 0; ci < cityClouds.length; ci++) {
+          var c = cityClouds[ci];
+          c.x += c.drift;
+          if (c.x < -100) c.x = w + 40;
+          if (c.x > w + 100) c.x = -40;
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.78)';
+          ctx.beginPath();
+          ctx.ellipse(c.x, c.y, c.w * 0.38, c.h * 0.6, 0, 0, Math.PI * 2);
+          ctx.ellipse(c.x - c.w * 0.2, c.y + 2, c.w * 0.24, c.h * 0.5, 0, 0, Math.PI * 2);
+          ctx.ellipse(c.x + c.w * 0.24, c.y + 1, c.w * 0.28, c.h * 0.55, 0, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      // skyline
+      for (var bi = 0; bi < cityBuildings.length; bi++) {
+        var b = cityBuildings[bi];
+        ctx.fillStyle = b.color;
+        ctx.fillRect(b.x, b.y, b.w, b.h);
+        for (var wi = 0; wi < b.windows.length; wi++) {
+          var win = b.windows[wi];
+          var litColor = cityIsDay ? 'rgba(220, 230, 250, 0.85)' : 'rgba(255, 214, 102, 0.95)';
+          var offColor = cityIsDay ? 'rgba(120, 140, 170, 0.35)' : 'rgba(70, 85, 110, 0.35)';
+          ctx.fillStyle = win.lit ? litColor : offColor;
+          ctx.fillRect(win.x, win.y, win.w, win.h);
+        }
+      }
+
+      // subtle road glow at bottom
+      var road = ctx.createLinearGradient(0, h * 0.9, 0, h);
+      road.addColorStop(0, 'rgba(15, 23, 42, 0.2)');
+      road.addColorStop(1, 'rgba(2, 6, 23, 0.7)');
+      ctx.fillStyle = road;
+      ctx.fillRect(0, h * 0.88, w, h * 0.12);
+
+      requestAnimationFrame(drawCityNight);
+    }
+
+    function toggleCityWindowAt(x, y) {
+      for (var bi = cityBuildings.length - 1; bi >= 0; bi--) {
+        var b = cityBuildings[bi];
+        if (x < b.x || x > b.x + b.w || y < b.y || y > b.y + b.h) continue;
+        for (var wi = 0; wi < b.windows.length; wi++) {
+          var win = b.windows[wi];
+          if (x >= win.x && x <= win.x + win.w && y >= win.y && y <= win.y + win.h) {
+            win.lit = !win.lit;
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+
+    function toggleCityDayNightAt(x, y) {
+      var dx = x - celestial.x;
+      var dy = y - celestial.y;
+      if (Math.sqrt(dx * dx + dy * dy) <= celestial.r + 4) {
+        cityIsDay = !cityIsDay;
+        switchYTAmbience(cityIsDay ? YT_DAY_ID : YT_NIGHT_ID);
+        return true;
+      }
+      return false;
+    }
+
+    if (SCENE_MODE === 'city_night') drawCityNight();
+    else drawPond();
+
+    // Click background interactions
     document.addEventListener('click', function (e) {
       if (e.target.closest('#letter-container.visible')) return;
       initAudio();
       startYTAudio();
+      if (SCENE_MODE === 'city_night') {
+        if (toggleCityDayNightAt(e.clientX, e.clientY)) return;
+        if (cityIsDay && e.clientY < canvas.height * 0.62) {
+          addDayCloud(e.clientX, e.clientY);
+          return;
+        }
+        toggleCityWindowAt(e.clientX, e.clientY);
+        return;
+      }
       pondRipples.push({ x: e.clientX, y: e.clientY, age: 0 });
       scareFishNear(e.clientX, e.clientY);
-      playSplash();
     });
 
     // ENVELOPE
@@ -1127,8 +1090,6 @@
       document.getElementById('message-text').textContent = '';
       document.getElementById('cursor').classList.add('hidden');
       letterContainer.classList.remove('visible');
-      document.getElementById('sticker-layer').innerHTML = '';
-      stickerCount = 0;
       setTimeout(showEnvelope, 500);
     });
 
@@ -1152,62 +1113,6 @@
       }, 45);
     }
 
-    // STICKERS — click on letter body (not buttons or pet cards)
-    var letter = document.getElementById('letter');
-    var stickerLayer = document.getElementById('sticker-layer');
-
-    letter.addEventListener('click', function (e) {
-      if (e.target.closest('#close-btn') || e.target.closest('#nap-btn') || e.target.closest('.pet-card')) return;
-      if (stickerCount >= MAX_STICKERS) return;
-
-      stickerCount++;
-      var rect = letter.getBoundingClientRect();
-      var x = e.clientX - rect.left + letter.scrollLeft;
-      var y = e.clientY - rect.top + letter.scrollTop;
-      var sticker = document.createElement('span');
-      sticker.className = 'sticker';
-      sticker.addEventListener('click', function (ev) {
-        ev.stopPropagation();
-        sticker.remove();
-        stickerCount--;
-        playStickerRemove();
-      });
-      var img = document.createElement('img');
-      img.src = STICKER_IMAGES[Math.floor(Math.random() * STICKER_IMAGES.length)];
-      sticker.appendChild(img);
-      sticker.style.left = (x - 22) + 'px';
-      sticker.style.top = (y - 22) + 'px';
-      stickerLayer.appendChild(sticker);
-      var hoop = document.createElement('div');
-      hoop.className = 'sticker-hoop';
-      hoop.style.left = x + 'px'; hoop.style.top = y + 'px';
-      stickerLayer.appendChild(hoop);
-      playStickerAdd();
-      setTimeout(function () { hoop.remove(); }, 600);
-    });
-
-    // NAP MODE
-    document.getElementById('nap-btn').addEventListener('click', function (e) {
-      e.stopPropagation();
-      initAudio();
-      isNapping = true;
-      document.getElementById('nap-overlay').classList.add('active');
-      if (napFilter) napFilter.frequency.linearRampToValueAtTime(300, audioCtx.currentTime + 1);
-      if (ytReady && ytPlayer && ytPlayer.setVolume) {
-        ytPlayer.setVolume(15);
-        setTimeout(function () { if (isNapping) ytPlayer.setVolume(15); }, 500);
-      }
-    });
-
-    document.getElementById('nap-overlay').addEventListener('click', function () {
-      isNapping = false;
-      document.getElementById('nap-overlay').classList.remove('active');
-      if (napFilter) napFilter.frequency.linearRampToValueAtTime(20000, audioCtx.currentTime + 0.5);
-      if (ytReady && ytPlayer && ytPlayer.setVolume) {
-        ytPlayer.setVolume(100);
-        setTimeout(function () { if (!isNapping) ytPlayer.setVolume(100); }, 500);
-      }
-    });
   </script>
 </body>
 
