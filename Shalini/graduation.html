@@ -625,10 +625,19 @@
     @media (max-width: 520px) {
       .st-tab { min-height: 38px; font-size: 0.7rem; }
       .petri-wrap { max-height: min(36svh, 260px); }
+      .polaroid-pop {
+        width: 84px;
+        padding: 3px 3px 12px;
+      }
+      .polaroid-pop span {
+        font-size: 0.62rem;
+        margin-top: 2px;
+      }
     }
 
-    @media (max-width: 500px) {
-      .polaroid-pop { width: 110px; padding: 4px 4px 16px; }
+    @media (max-width: 380px) {
+      .polaroid-pop { width: 72px; padding: 2px 2px 10px; }
+      .polaroid-pop span { font-size: 0.58rem; }
     }
 
     @media (max-height: 700px) {
@@ -1212,11 +1221,14 @@
       }
       if (!path) return;
       if (!caption) caption = captionFromPhotoPath(path);
-      var popW = window.innerWidth < 500 ? 110 : 130;
+      var popW = 130;
+      if (window.innerWidth <= 380) popW = 72;
+      else if (window.innerWidth <= 520) popW = 84;
+      var popH = popW + 44;
       var el = document.createElement('div');
       el.className = 'polaroid-pop';
       el.style.left = Math.min(window.innerWidth - popW - 20, Math.max(10, clientX - popW / 2)) + 'px';
-      el.style.top = Math.min(window.innerHeight - 170, Math.max(10, clientY - 90)) + 'px';
+      el.style.top = Math.min(window.innerHeight - popH - 12, Math.max(10, clientY - popH * 0.55)) + 'px';
       el.style.setProperty('--rot', ((Math.random() * 12) - 6) + 'deg');
       el.innerHTML = '<img src="' + photoUrl(path) + '" alt="silly shalini"><span>' + caption + '</span>';
       el.addEventListener('click', function (e) {
