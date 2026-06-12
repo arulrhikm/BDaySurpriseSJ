@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Graduation, Shalini ♡</title>
+  <meta name="description" content="A soft indie scrapbook graduation card for Shalini">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Reenie+Beanie&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sage: #9caf88;
+      --sage-dark: #7a9168;
+      --cream: #faf6ee;
+      --cream-deep: #f0e8d8;
+      --dusty-pink: #d4a5a5;
+      --pale-yellow: #f5e6a8;
+      --muted-blue: #a8c4d4;
+      --ink: #4a4a3f;
+      --tape: rgba(245, 230, 168, 0.75);
+      --bg-gradient: linear-gradient(160deg, #8fa87a 0%, #b8c9a8 40%, #d4dfc8 100%);
+      --paper-glow: rgba(156, 175, 136, 0.08);
+      --hint-color: rgba(255, 255, 255, 0.88);
+      --nav-dot-border: rgba(255, 255, 255, 0.7);
+    }
+
+    html[data-theme="laufey"] {
+      --sage: #c9a0a0;
+      --sage-dark: #9e7070;
+      --cream: #fff8f5;
+      --cream-deep: #f5ebe6;
+      --dusty-pink: #e8b4b8;
+      --pale-yellow: #f5e6d3;
+      --muted-blue: #d4b8c4;
+      --ink: #4a3a3a;
+      --tape: rgba(245, 220, 210, 0.8);
+      --bg-gradient: linear-gradient(160deg, #b88888 0%, #ddb8b8 45%, #f5e8e4 100%);
+      --paper-glow: rgba(201, 160, 160, 0.1);
+      --hint-color: rgba(255, 248, 245, 0.92);
+    }
+
+    html[data-theme="mitski"] {
+      --sage: #9caf88;
+      --sage-dark: #7a9168;
+      --cream: #faf6ee;
+      --cream-deep: #f0e8d8;
+      --dusty-pink: #d4a5a5;
+      --pale-yellow: #f5e6a8;
+      --muted-blue: #a8c4d4;
+      --ink: #4a4a3f;
+      --tape: rgba(245, 230, 168, 0.75);
+      --bg-gradient: linear-gradient(160deg, #8fa87a 0%, #b8c9a8 40%, #d4dfc8 100%);
+      --paper-glow: rgba(156, 175, 136, 0.08);
+      --hint-color: rgba(255, 255, 255, 0.88);
+    }
+
+    html[data-theme="beabadoobee"] {
+      --sage: #d4b86a;
+      --sage-dark: #a89040;
+      --cream: #fffdf5;
+      --cream-deep: #f8f0d8;
+      --dusty-pink: #e8c9a0;
+      --pale-yellow: #ffe9a0;
+      --muted-blue: #c4d4a8;
+      --ink: #4a4430;
+      --tape: rgba(255, 235, 180, 0.85);
+      --bg-gradient: linear-gradient(160deg, #d4b86a 0%, #e8d898 40%, #f5efd0 100%);
+      --paper-glow: rgba(212, 184, 106, 0.12);
+      --hint-color: rgba(255, 253, 245, 0.95);
+    }
+
+    html[data-theme="alexg"] {
+      --sage: #8a9cb0;
+      --sage-dark: #5c6d80;
+      --cream: #f4f6f8;
+      --cream-deep: #e4e8ec;
+      --dusty-pink: #b0a8c4;
+      --pale-yellow: #d4dce4;
+      --muted-blue: #7a90a8;
+      --ink: #2e3540;
+      --tape: rgba(200, 210, 220, 0.8);
+      --bg-gradient: linear-gradient(160deg, #5c6d80 0%, #8a9cb0 40%, #c4d0dc 100%);
+      --paper-glow: rgba(138, 156, 176, 0.1);
+      --hint-color: rgba(244, 246, 248, 0.92);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      height: 100%;
+      background: var(--bg-gradient);
+      background-attachment: fixed;
+      background-size: cover;
+      transition: background 0.7s ease;
+    }
+
+    body {
+      min-height: 100dvh;
+      font-family: 'Patrick Hand', cursive;
+      color: var(--ink);
+      background: transparent;
+      overflow-x: hidden;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 6px 8px 12px;
+      transition: color 0.4s ease;
+    }
+
+    .hint {
+      font-family: 'Caveat', cursive;
+      font-size: 1.1rem;
+      color: var(--hint-color);
+      margin-bottom: 10px;
+      text-align: center;
+      transition: color 0.5s ease;
+    }
+
+    /* ── TOP SOUNDTRACK BAR ── */
+    .soundtrack-bar {
+      flex-shrink: 0;
+      z-index: 60;
+      width: min(96vw, 720px);
+      background: var(--cream);
+      border: 2px dashed var(--sage);
+      border-radius: 8px;
+      padding: 10px 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+      margin-bottom: 8px;
+      transition: background 0.5s ease, border-color 0.5s ease;
+    }
+
+    .st-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .st-label {
+      font-family: 'Reenie Beanie', cursive;
+      font-size: 1.35rem;
+      color: var(--sage-dark);
+    }
+
+    .st-now {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(0.95rem, 2.8vw, 1.1rem);
+      color: var(--ink);
+      text-align: right;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .st-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
+
+    @media (max-width: 500px) {
+      .st-tabs { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .st-tab {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 0.88rem;
+      padding: 8px 4px;
+      border: 2px dashed var(--sage);
+      background: var(--cream-deep);
+      color: var(--ink);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .st-tab:hover {
+      transform: translateY(-1px);
+    }
+
+    .st-tab.active {
+      background: var(--sage);
+      color: #fff;
+      border-style: solid;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    #yt-grad {
+      position: fixed;
+      width: 1px;
+      height: 1px;
+      top: 0;
+      left: 0;
+      opacity: 0.01;
+      pointer-events: none;
+      border: 0;
+    }
+
+    @keyframes statPop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+      100% { transform: scale(1); }
+    }
+
+    /* full-screen lab game */
+    :root { --game-chrome: 360px; }
+
+    .game-shell {
+      width: min(96vw, 720px);
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 5px;
+    }
+
+    .game-header {
+      flex-shrink: 0;
+      text-align: center;
+    }
+
+    .game-title {
+      font-family: 'Reenie Beanie', cursive;
+      font-size: clamp(1.2rem, 4.2vw, 1.75rem);
+      color: var(--hint-color);
+      line-height: 1.1;
+    }
+
+    .game-instructions {
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1.5px dashed var(--sage);
+      border-radius: 10px;
+      padding: 7px 10px 8px;
+      font-family: 'Patrick Hand', cursive;
+      font-size: clamp(0.68rem, 2.4vw, 0.8rem);
+      line-height: 1.35;
+      color: var(--ink);
+    }
+
+    .game-instructions summary {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(0.88rem, 2.8vw, 1rem);
+      color: var(--sage-dark);
+      cursor: pointer;
+      list-style: none;
+      text-align: center;
+    }
+
+    .game-instructions summary::-webkit-details-marker { display: none; }
+
+    .game-instructions summary::after {
+      content: ' ▾';
+      font-size: 0.85em;
+      opacity: 0.7;
+    }
+
+    .game-instructions[open] summary::after { content: ' ▴'; }
+
+    .game-instructions ol {
+      margin: 6px 0 0;
+      padding-left: 1.2rem;
+    }
+
+    .game-instructions li { margin: 2px 0; }
+
+    .game-instructions strong { color: var(--sage-dark); }
+
+    .lab-bench {
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      border: 2px dashed var(--muted-blue);
+      border-radius: 16px;
+      background: linear-gradient(160deg, #e4ecf3 0%, #f3efe6 45%, #ebe4d8 100%);
+      padding: 10px 12px 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      overflow: visible;
+    }
+    .lab-stage {
+      flex: 0 1 auto;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(48px, 1fr) auto minmax(48px, 1fr);
+      grid-template-rows: auto auto auto;
+      gap: 6px 8px;
+      align-items: center;
+      justify-items: center;
+      margin: 4px 0;
+      overflow: visible;
+      padding: 4px 0;
+    }
+    .lab-tool {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(0.7rem, 2.2vw, 0.8rem);
+      line-height: 1.1;
+      width: clamp(52px, 14vw, 64px);
+      padding: 8px 4px;
+      border: 2px dashed var(--sage);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.85);
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .lab-tool .tool-icon { font-size: clamp(1.15rem, 4vw, 1.45rem); line-height: 1; }
+    .lab-tool:hover { background: #fff; }
+    .lab-tool.active {
+      border-style: solid;
+      background: var(--pale-yellow);
+      box-shadow: 0 3px 0 var(--sage-dark);
+    }
+    .lab-tool[data-lab="microscope"] { grid-column: 1; grid-row: 1; }
+    .lab-tool[data-lab="stain"] { grid-column: 3; grid-row: 1; }
+    .lab-tool[data-lab="incubate"] { grid-column: 1; grid-row: 3; }
+    .lab-tool[data-lab="inoculate"] { grid-column: 3; grid-row: 3; }
+    .petri-wrap {
+      grid-column: 2;
+      grid-row: 1 / span 3;
+      position: relative;
+      width: min(
+        calc(100vw - 108px),
+        calc(100dvh - var(--game-chrome)),
+        460px
+      );
+      max-width: 100%;
+      aspect-ratio: 1;
+      height: auto;
+    }
+    .petri-wrap.zoomed .petri-rim { box-shadow:
+        0 0 0 2px #b8c8d8,
+        0 6px 18px rgba(0,0,0,0.14),
+        inset 0 2px 12px rgba(255,255,255,0.5),
+        inset 0 -4px 14px rgba(0,0,0,0.07),
+        0 0 0 3px color-mix(in srgb, var(--sage) 35%, transparent);
+    }
+    .viewport-corner {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-color: color-mix(in srgb, var(--sage-dark) 45%, transparent);
+      border-style: solid;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .viewport-corner.tl { top: 2px; left: 2px; border-width: 2px 0 0 2px; }
+    .viewport-corner.tr { top: 2px; right: 2px; border-width: 2px 2px 0 0; }
+    .viewport-corner.bl { bottom: 2px; left: 2px; border-width: 0 0 2px 2px; }
+    .viewport-corner.br { bottom: 2px; right: 2px; border-width: 0 2px 2px 0; }
+    .petri-rim {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 5px solid rgba(255,255,255,0.95);
+      box-shadow:
+        0 0 0 2px #b8c8d8,
+        0 6px 18px rgba(0,0,0,0.14),
+        inset 0 2px 12px rgba(255,255,255,0.5),
+        inset 0 -4px 14px rgba(0,0,0,0.07);
+      overflow: hidden;
+      background: #c5d3df;
+      cursor: crosshair;
+    }
+    .petri-rim canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      touch-action: none;
+    }
+    .cfu-track {
+      flex-shrink: 0;
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Caveat', cursive;
+      font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+      color: var(--sage-dark);
+    }
+    .cfu-bar {
+      flex: 1;
+      height: 12px;
+      background: rgba(255,255,255,0.6);
+      border: 1.5px dashed var(--sage);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .cfu-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--sage), var(--dusty-pink));
+      transition: width 0.4s ease;
+    }
+    .lab-quests {
+      flex-shrink: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px 8px;
+      margin-top: 6px;
+      font-family: 'Patrick Hand', cursive;
+      font-size: clamp(0.62rem, 2.2vw, 0.72rem);
+      color: var(--ink);
+    }
+    .lab-quests span {
+      background: rgba(255,255,255,0.55);
+      padding: 3px 6px;
+      border-radius: 6px;
+      border: 1px dashed color-mix(in srgb, var(--sage) 50%, transparent);
+    }
+    .lab-quests span.done {
+      border-style: solid;
+      background: color-mix(in srgb, var(--sage) 25%, #fff);
+      color: var(--sage-dark);
+    }
+    .rue-album {
+      position: relative;
+      flex-shrink: 0;
+      min-height: 44px;
+      margin-top: 8px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 10px;
+      border: 1px dashed color-mix(in srgb, var(--sage) 45%, transparent);
+      overflow: hidden;
+    }
+
+    .rue-album:has(.rue-album-thumb) {
+      min-height: clamp(150px, 32vw, 240px);
+    }
+
+    .rue-album-hint {
+      display: block;
+      font-family: 'Caveat', cursive;
+      font-size: 0.8rem;
+      color: var(--muted-blue);
+      opacity: 0.55;
+      text-align: center;
+      padding: 12px 8px;
+    }
+
+    .rue-album:has(.rue-album-thumb) .rue-album-hint { display: none; }
+
+    .rue-album-thumb {
+      position: absolute;
+      width: clamp(54px, 15vw, 76px);
+      padding: 3px 3px 12px;
+      background: #fff;
+      border: none;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.14);
+      object-fit: cover;
+      aspect-ratio: 0.82;
+      left: var(--x, 0);
+      top: var(--y, 0);
+      transform: rotate(var(--rot, -2deg));
+      cursor: pointer;
+      transition: box-shadow 0.2s, z-index 0s;
+      z-index: 1;
+    }
+
+    .rue-album-thumb:hover {
+      z-index: 5;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+    .polaroid-pop {
+      position: fixed;
+      z-index: 95;
+      width: 130px;
+      padding: 5px 5px 20px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transform: rotate(var(--rot, -3deg));
+      animation: polaroidIn 0.35s ease-out forwards;
+      max-width: calc(100vw - 24px);
+    }
+    @keyframes polaroidIn {
+      from { opacity: 0; transform: rotate(var(--rot, -3deg)) translateY(8px); }
+      to { opacity: 1; transform: rotate(var(--rot, -3deg)) translateY(0); }
+    }
+    .polaroid-pop img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+    }
+    .polaroid-pop span {
+      display: block;
+      font-family: 'Caveat', cursive;
+      font-size: 0.75rem;
+      line-height: 1.2;
+      text-align: center;
+      margin-top: 3px;
+      color: var(--ink);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 0 2px;
+    }
+    .float-heart {
+      position: fixed;
+      font-size: 16px;
+      pointer-events: none;
+      z-index: 88;
+      animation: pawFloat 1s ease-out forwards;
+    }
+    .lab-specimen-id { display: none; }
+
+    @media (max-width: 500px) {
+      .soundtrack-bar { padding: 7px 8px; margin-bottom: 4px; }
+      .st-header { margin-bottom: 5px; }
+      .st-label { font-size: 1.05rem; }
+      .st-now { font-size: 0.82rem; min-width: 0; }
+      .st-tab { font-size: 0.8rem; padding: 6px 3px; }
+      .lab-tool { width: 48px; padding: 6px 2px; }
+      .rue-album-thumb { width: 48px; }
+      .polaroid-pop { width: 110px; padding: 4px 4px 16px; }
+    }
+
+    @media (max-height: 700px) {
+      .soundtrack-bar { padding: 6px 8px; margin-bottom: 4px; }
+      .st-header { margin-bottom: 4px; }
+      .game-instructions { padding: 5px 8px; }
+      .game-instructions ol { margin-top: 4px; }
+    }
+
+    @media (min-width: 600px) and (min-height: 740px) {
+      .petri-wrap {
+        width: min(calc(100vw - 140px), calc(100dvh - var(--game-chrome)), 500px);
+      }
+    }
+    .float-paw {
+      position: fixed;
+      font-size: 18px;
+      pointer-events: none;
+      z-index: 80;
+      animation: pawFloat 1.2s ease-out forwards;
+    }
+    @keyframes pawFloat {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-60px) scale(1.3); }
+    }
+
+    /* reward card — drops in at 100% CFU */
+    .reward-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: color-mix(in srgb, var(--sage-dark) 45%, transparent);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 16px 12px;
+      overflow-y: auto;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.45s ease;
+    }
+    .reward-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .reward-panel {
+      width: min(92vw, 440px);
+      background: var(--cream);
+      border-radius: 10px;
+      border: 2px solid var(--sage);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+      padding: 22px 20px 18px;
+      transform: translateY(-110%);
+      transition: transform 0.7s cubic-bezier(0.34, 1.25, 0.64, 1);
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+    }
+    .reward-overlay.open .reward-panel {
+      transform: translateY(0);
+    }
+    .reward-close {
+      font-family: 'Caveat', cursive;
+      font-size: 1rem;
+      float: right;
+      padding: 4px 12px;
+      border: 2px dashed var(--dusty-pink);
+      border-radius: 20px;
+      background: #fff;
+      cursor: pointer;
+      color: var(--ink);
+    }
+    .reward-close:hover { background: var(--pale-yellow); }
+    .reward-title {
+      font-family: 'Reenie Beanie', cursive;
+      font-size: 1.85rem;
+      color: var(--sage-dark);
+      text-align: center;
+      margin: 8px 0 12px;
+      clear: both;
+    }
+    .reward-msg {
+      font-family: 'Caveat', cursive;
+      font-size: 1.08rem;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+    .reward-msg p + p { margin-top: 12px; }
+    .reward-msg .stat-line {
+      font-family: 'Reenie Beanie', cursive;
+      font-size: 1.15rem;
+      color: var(--sage-dark);
+      text-align: center;
+      margin: 10px 0;
+    }
+    .reward-sign {
+      color: var(--dusty-pink);
+      font-size: 1.25rem;
+      text-align: center;
+      margin-top: 16px;
+    }
+    .reward-faces-label { display: none; }
+    .reward-faces {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .reward-faces img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      background: #fff;
+      padding: 3px 3px 10px;
+      box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.12);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .reward-faces img.center-feature {
+      outline: 2px solid var(--dusty-pink);
+      outline-offset: 1px;
+    }
+    .reward-faces img:hover {
+      transform: scale(1.03);
+      box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.16);
+      z-index: 1;
+    }
+    .photo-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: color-mix(in srgb, var(--ink) 75%, transparent);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      cursor: pointer;
+    }
+    .photo-lightbox.open { display: flex; }
+    .photo-lightbox img {
+      max-width: 92vw;
+      max-height: 85vh;
+      border: 8px solid #fff;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+    .reward-no-photos {
+      font-family: 'Caveat', cursive;
+      font-size: 0.9rem;
+      text-align: center;
+      color: var(--muted-blue);
+      grid-column: 1 / -1;
+    }
+    .word-cracked {
+      font: inherit;
+      font-weight: 700;
+      color: var(--sage-dark);
+      background: var(--pale-yellow);
+      border-bottom: 2px dashed var(--dusty-pink);
+      padding: 0 3px;
+      border-radius: 2px;
+      text-decoration: none;
+    }
+    .word-cracked:hover { background: #fff3c4; }
+    .reward-tab {
+      flex-shrink: 0;
+      width: 100%;
+      font-family: 'Caveat', cursive;
+      font-size: clamp(1rem, 3.2vw, 1.15rem);
+      padding: 10px 14px;
+      border: 2px dashed var(--dusty-pink);
+      background: var(--cream);
+      border-radius: 10px;
+      cursor: pointer;
+      color: var(--sage-dark);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      transition: background 0.2s, transform 0.2s;
+      display: none;
+    }
+    .reward-tab.visible { display: block; }
+    .reward-tab:hover {
+      background: var(--pale-yellow);
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body>
+
+  <iframe id="yt-grad" allow="autoplay; encrypted-media" src="https://www.youtube.com/embed/lSD_L-xic9o?enablejsapi=1&amp;loop=1&amp;playlist=lSD_L-xic9o&amp;controls=0&amp;modestbranding=1&amp;rel=0"></iframe>
+  <script src="https://www.youtube.com/iframe_api"></script>
+
+  <header class="soundtrack-bar" id="soundtrack-bar">
+    <div class="st-header">
+      <span class="st-label">soundtrack of the graduate ♪</span>
+      <div class="st-now" id="st-song">From The Start</div>
+    </div>
+    <div class="st-tabs">
+      <button type="button" class="st-tab active" data-artist="laufey">Laufey</button>
+      <button type="button" class="st-tab" data-artist="mitski">Mitski</button>
+      <button type="button" class="st-tab" data-artist="beabadoobee">beabadoobee</button>
+      <button type="button" class="st-tab" data-artist="alexg">Alex G</button>
+    </div>
+  </header>
+
+  <main class="game-shell" id="game-shell">
+    <div class="game-header">
+      <h1 class="game-title">happy graduation, queen ♡</h1>
+    </div>
+    <details class="game-instructions">
+      <summary>how to play the lab</summary>
+      <ol>
+        <li>Pick a <strong>tool</strong> (🔬 💧 🌡️ 🧫) — try all four for the protocol quest.</li>
+        <li>With <strong>inoculate</strong>, tap empty agar to grow colonies. <strong>Drag</strong> to streak.</li>
+        <li><strong>Incubate</strong> so colonies mature, then tap them to <strong>isolate</strong> (5 needed).</li>
+        <li>Find the <strong>gold honors strain</strong> and isolate it once.</li>
+        <li><strong>Tap Rue</strong> in the dish — gentle = purr, zoom = zoomies + silly pics unlock!</li>
+        <li>Feed Rue the 🐟 treats. Use <strong>stain</strong> if she contaminates colonies.</li>
+        <li>Hit <strong>100% colony forming units</strong> to open up your graduation card.</li>
+      </ol>
+    </details>
+
+    <div class="lab-bench" id="lab-bench">
+      <div class="lab-stage">
+        <button type="button" class="lab-tool" data-lab="microscope"><span class="tool-icon">🔬</span>focus</button>
+        <button type="button" class="lab-tool" data-lab="stain"><span class="tool-icon">💧</span>stain</button>
+        <div class="petri-wrap" id="petri-wrap">
+          <span class="viewport-corner tl"></span>
+          <span class="viewport-corner tr"></span>
+          <span class="viewport-corner bl"></span>
+          <span class="viewport-corner br"></span>
+          <div class="petri-rim" id="play-zone">
+            <canvas id="play-pond"></canvas>
+          </div>
+        </div>
+        <button type="button" class="lab-tool" data-lab="incubate"><span class="tool-icon">🌡️</span>incubate</button>
+        <button type="button" class="lab-tool" data-lab="inoculate"><span class="tool-icon">🧫</span>inoculate</button>
+      </div>
+      <div class="cfu-track">
+        <span>CFU</span>
+        <div class="cfu-bar"><div class="cfu-fill" id="cfu-fill"></div></div>
+        <span id="cfu-pct">0%</span>
+      </div>
+      <div class="lab-quests" id="lab-quests">
+        <span id="q-isolate">mature isolates 0/5</span>
+        <span id="q-rare">honors strain 0/1</span>
+        <span id="q-rue">rue samples 0/3</span>
+        <span id="q-tools">protocol 0/4</span>
+      </div>
+      <div class="rue-album" id="rue-album">
+        <span class="rue-album-hint">tap rue to unlock silly pics</span>
+      </div>
+    </div>
+    <button type="button" class="reward-tab" id="reward-tab">♡ your graduation card</button>
+  </main>
+
+  <div class="reward-overlay" id="reward-overlay">
+    <div class="reward-panel">
+      <button type="button" class="reward-close" id="reward-close">← back to lab</button>
+      <h2 class="reward-title">Happy Graduation Queen!!</h2>
+      <div class="reward-msg">
+        <p>I'm so proud of you — 10/10 beauty, 15/10 personality, and 20/10 grit. You're genuinely <a class="word-cracked" href="https://gemini.google.com/share/aac95fd3e27a" target="_blank" rel="noopener noreferrer">cracked</a> even if you refuse to admit it sometimes.</p>
+        <p>It's been such a blessing getting to play Minecraft with you, watch Avatar together, listen to you play guitar, and hear about all the little things you care about every day. You are an inspiration and constantly motivate me to improve myself.</p>
+        <p>Rue is definitely proud to have you as her mom, and I hope you're ready to start making that big girl money and get every trinket, Smiski, Sonny Angel, and Shells Makeup Set your heart desires!</p>
+        <p>You deserve all the happiness, comfort, and good things coming your way.</p>
+        <p class="reward-sign">Congratulations again — I'm really proud of you ♡</p>
+      </div>
+      <div class="reward-faces" id="reward-faces"></div>
+    </div>
+  </div>
+
+  <div class="photo-lightbox" id="photo-lightbox">
+    <img id="photo-lightbox-img" src="" alt="you and rue">
+  </div>
+
+  <script>
+    /* Rue sprite: photos/Rue/ · silly game pops: Shalini-funny/ · reward gallery: Shalini-with-Rue/ */
+    var RUE_GAME_FILES = ['photos/Rue/Subject.png'];
+    /* Shalini-funny/ captions come from the filename (no .jpg).
+       Spaces ok. _ and - become spaces.
+       Punctuation (illegal in filenames): end with " q" → ?, " ex" → !  — or use __q / __ex / __dot / __comma inline.
+       Optional: "caption__IMG_9544.jpg" shows only "caption". */
+    var FUNNY_PHOTO_FILES = [
+      'photos/Shalini-funny/aghh__ex.jpg',
+      'photos/Shalini-funny/bruh__dot.jpg',
+      'photos/Shalini-funny/cute gremlin__ex.jpg',
+      'photos/Shalini-funny/did I have something due__q.jpg',
+      'photos/Shalini-funny/eww__ex.jpg',
+      'photos/Shalini-funny/how do I take a selfie__q.jpg',
+      'photos/Shalini-funny/huh__q.jpg',
+      'photos/Shalini-funny/I dont want to hear it__ex.jpg',
+      'photos/Shalini-funny/inner peace__dot.jpg',
+      'photos/Shalini-funny/its joever__dot.jpg',
+      'photos/Shalini-funny/nnnggghhh__ex.jpg',
+      'photos/Shalini-funny/when scores drop__dot.jpg',
+      'photos/Shalini-funny/what do you want__q.jpg',
+      'photos/Shalini-funny/what__q.jpg',
+      'photos/Shalini-funny/work started an hour ago__dot.jpg'
+    ];
+    var GALLERY_PHOTO_FILES = [
+      'photos/Shalini-with-Rue/IMG_8956.jpg',
+      'photos/Shalini-with-Rue/IMG_9085.jpg',
+      'photos/Shalini-with-Rue/IMG_9092.jpg',
+      'photos/Shalini-with-Rue/IMG_9104.jpg',
+      'photos/Shalini-with-Rue/IMG_9509.jpg',
+      'photos/Shalini-with-Rue/IMG_9555.jpg',
+      'photos/Shalini-with-Rue/ABB9EC94-B6C3-4FA0-BCD6-8DE3FD874F6A.JPG',
+      'photos/Shalini-with-Rue/367DDEA3-2D5B-48EB-90CE-F1B5DD50D437.JPG',
+      'photos/Shalini-with-Rue/2DDBA569-507B-4483-9ED7-DCD6830615AA.JPG'
+    ];
+    var rueGamePhotos = [];
+    var rueGameImages = [];
+    var funnyPhotos = [];
+    var funnyAlbumUnlocked = [];
+    var funnyIdx = 0;
+    var galleryPhotos = [];
+    var GALLERY_CENTER_PHOTO = 'photos/Shalini-with-Rue/IMG_8956.jpg';
+    var photoBoardRects = [];
+    var pawPrints = [];
+    var treats = [];
+    var hearts = [];
+    var isDragging = false;
+    var lastStreakAt = 0;
+    var treatTimer = 0;
+    var rewardUnlocked = false;
+    var rewardAutoShown = false;
+    var microscopeZoom = false;
+    var goals = {
+      isolates: 0,
+      isolatesNeed: 5,
+      rare: 0,
+      rareNeed: 1,
+      rue: 0,
+      rueNeed: 3,
+      tools: { microscope: false, stain: false, incubate: false, inoculate: false }
+    };
+    var MATURE_RATIO = 0.72;
+
+    var ARTISTS = {
+      mitski: {
+        label: 'Mitski',
+        theme: 'mitski',
+        song: 'Francis Forever',
+        yt: 'mHKTdlUyyko'
+      },
+      laufey: {
+        label: 'Laufey',
+        theme: 'laufey',
+        song: 'From The Start',
+        yt: 'lSD_L-xic9o'
+      },
+      beabadoobee: {
+        label: 'beabadoobee',
+        theme: 'beabadoobee',
+        song: 'Perfect Pair',
+        yt: 'HwtEBQiuX-c'
+      },
+      alexg: {
+        label: 'Alex G',
+        theme: 'alexg',
+        song: 'Runner',
+        yt: 'JFaMCIVHz2I'
+      }
+    };
+
+    var currentArtist = 'laufey';
+    var currentYtId = 'lSD_L-xic9o';
+    var ytPlayer = null;
+    var ytReady = false;
+    var pendingTrackPlay = false;
+
+    function onYouTubeIframeAPIReady() {
+      var cfg = ARTISTS.laufey;
+      pendingTrackPlay = true;
+      ytPlayer = new YT.Player('yt-grad', {
+        height: '1',
+        width: '1',
+        videoId: cfg.yt,
+        playerVars: {
+          autoplay: 1,
+          loop: 1,
+          playlist: cfg.yt,
+          controls: 0,
+          modestbranding: 1,
+          rel: 0,
+          enablejsapi: 1
+        },
+        events: {
+          onReady: function (event) {
+            ytReady = true;
+            event.target.setVolume(100);
+            event.target.playVideo();
+          },
+          onStateChange: function (e) {
+            if (!ytPlayer) return;
+            if (pendingTrackPlay && (
+              e.data === YT.PlayerState.CUED ||
+              e.data === YT.PlayerState.PAUSED ||
+              e.data === YT.PlayerState.UNSTARTED ||
+              e.data === YT.PlayerState.BUFFERING
+            )) {
+              ytPlayer.setVolume(100);
+              ytPlayer.playVideo();
+            }
+            if (e.data === YT.PlayerState.PLAYING) pendingTrackPlay = false;
+            if (e.data === YT.PlayerState.ENDED) {
+              ytPlayer.seekTo(0);
+              ytPlayer.playVideo();
+            }
+          }
+        }
+      });
+    }
+
+    function playActiveTrack() {
+      if (!ytReady || !ytPlayer || !ytPlayer.playVideo) return;
+      pendingTrackPlay = true;
+      ytPlayer.setVolume(100);
+      ytPlayer.playVideo();
+    }
+
+    function startGradAudio() {
+      playActiveTrack();
+    }
+
+    function setArtist(id) {
+      if (!ARTISTS[id]) return;
+      currentArtist = id;
+      var cfg = ARTISTS[id];
+      currentYtId = cfg.yt;
+      pendingTrackPlay = true;
+      document.documentElement.setAttribute('data-theme', cfg.theme);
+      document.getElementById('st-song').textContent = cfg.song;
+      document.querySelectorAll('.st-tab').forEach(function (btn) {
+        btn.classList.toggle('active', btn.getAttribute('data-artist') === id);
+      });
+      if (ytReady && ytPlayer && ytPlayer.loadVideoById) {
+        ytPlayer.loadVideoById({ videoId: cfg.yt });
+        ytPlayer.setVolume(100);
+        ytPlayer.playVideo();
+      }
+    }
+
+    document.querySelectorAll('.st-tab').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setArtist(btn.getAttribute('data-artist'));
+      });
+    });
+
+    document.addEventListener('click', function () {
+      pendingTrackPlay = true;
+      playActiveTrack();
+    }, { once: true });
+
+    document.documentElement.setAttribute('data-theme', 'laufey');
+
+    function spawnPaws(x, y) {
+      for (var i = 0; i < 4; i++) {
+        (function (j) {
+          setTimeout(function () {
+            var paw = document.createElement('span');
+            paw.className = 'float-paw';
+            paw.textContent = '🐾';
+            paw.style.left = (x + (Math.random() - 0.5) * 40) + 'px';
+            paw.style.top = (y + (Math.random() - 0.5) * 20) + 'px';
+            document.body.appendChild(paw);
+            setTimeout(function () { paw.remove(); }, 1200);
+          }, j * 60);
+        })(i);
+      }
+    }
+
+    function captionFromPhotoPath(path) {
+      var name = path.split('/').pop() || '';
+      var dot = name.lastIndexOf('.');
+      if (dot > 0) name = name.slice(0, dot);
+      name = decodeURIComponent(name);
+      name = name
+        .replace(/__comma/gi, ',')
+        .replace(/__dot/gi, '.')
+        .replace(/__ex/gi, '!')
+        .replace(/__q/gi, '?');
+      var sep = name.indexOf('__');
+      if (sep !== -1) {
+        var tail = name.slice(sep + 2);
+        if (/^(IMG_|ABB9|DSC|367D|2DDB)/i.test(tail)) name = name.slice(0, sep);
+      }
+      name = name.replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim();
+      name = name.replace(/\s+q$/i, '?').replace(/\s+ex$/i, '!');
+      return name || 'lol';
+    }
+
+    function photoUrl(path) {
+      var slash = path.lastIndexOf('/');
+      if (slash === -1) return encodeURIComponent(path);
+      return path.slice(0, slash + 1) + encodeURIComponent(path.slice(slash + 1));
+    }
+
+    function loadPhotoList(files, done) {
+      var loaded = [];
+      var left = files.length;
+      if (!left) { done([]); return; }
+      files.forEach(function (path) {
+        var img = new Image();
+        img.onload = function () { finish(path); };
+        img.onerror = function () { finish(null); };
+        img.src = photoUrl(path);
+        function finish(p) {
+          if (p) loaded.push(p);
+          left--;
+          if (left <= 0) {
+            var ordered = files.filter(function (f) { return loaded.indexOf(f) !== -1; });
+            done(ordered);
+          }
+        }
+      });
+    }
+
+    function openPhotoLightbox(src) {
+      document.getElementById('photo-lightbox-img').src = photoUrl(src);
+      document.getElementById('photo-lightbox').classList.add('open');
+    }
+
+    document.getElementById('photo-lightbox').addEventListener('click', function () {
+      this.classList.remove('open');
+    });
+
+    function revealNextFunnyPhoto(screenX, screenY) {
+      if (!funnyPhotos.length) return;
+      var photo = funnyPhotos[funnyIdx % funnyPhotos.length];
+      funnyIdx++;
+      unlockFunnyAlbumPhoto(photo.path);
+      showFunnyPolaroid(screenX, screenY, photo.caption, photo.path);
+    }
+
+    function showFunnyPolaroid(clientX, clientY, caption, path) {
+      if (!path && funnyPhotos.length) {
+        var entry = funnyPhotos[funnyIdx % funnyPhotos.length];
+        path = entry.path;
+        if (!caption) caption = entry.caption;
+      }
+      if (!path) return;
+      if (!caption) caption = captionFromPhotoPath(path);
+      var popW = window.innerWidth < 500 ? 110 : 130;
+      var el = document.createElement('div');
+      el.className = 'polaroid-pop';
+      el.style.left = Math.min(window.innerWidth - popW - 20, Math.max(10, clientX - popW / 2)) + 'px';
+      el.style.top = Math.min(window.innerHeight - 170, Math.max(10, clientY - 90)) + 'px';
+      el.style.setProperty('--rot', ((Math.random() * 12) - 6) + 'deg');
+      el.innerHTML = '<img src="' + photoUrl(path) + '" alt="silly shalini"><span>' + caption + '</span>';
+      el.addEventListener('click', function (e) {
+        e.stopPropagation();
+        openPhotoLightbox(path);
+      });
+      document.body.appendChild(el);
+      setTimeout(function () {
+        el.style.transition = 'opacity 0.35s, transform 0.35s';
+        el.style.opacity = '0';
+        el.style.transform = 'scale(0.9) translateY(-10px)';
+        setTimeout(function () { el.remove(); }, 350);
+      }, 2800);
+    }
+
+    function boardRectsOverlap(a, b, gap) {
+      gap = gap || 10;
+      return a.x < b.x + b.w + gap && a.x + a.w + gap > b.x &&
+        a.y < b.y + b.h + gap && a.y + a.h + gap > b.y;
+    }
+
+    function placeOnPhotoBoard(img, board, rects) {
+      var pad = 8;
+      var rot = (Math.random() * 26) - 13;
+      img.style.setProperty('--rot', rot + 'deg');
+      board.appendChild(img);
+      var bw = board.clientWidth || 280;
+      var bh = board.clientHeight || 180;
+      var iw = img.offsetWidth || 64;
+      var ih = img.offsetHeight || 78;
+      var placed = null;
+      for (var attempt = 0; attempt < 100; attempt++) {
+        var x = pad + Math.random() * Math.max(1, bw - iw - pad * 2);
+        var y = pad + Math.random() * Math.max(1, bh - ih - pad * 2);
+        var rect = { x: x, y: y, w: iw, h: ih };
+        var hit = false;
+        for (var i = 0; i < rects.length; i++) {
+          if (boardRectsOverlap(rect, rects[i])) { hit = true; break; }
+        }
+        if (!hit) { placed = rect; break; }
+      }
+      if (!placed) {
+        var n = rects.length;
+        var cols = Math.max(2, Math.floor(bw / (iw + pad)));
+        placed = {
+          x: pad + (n % cols) * (iw + pad),
+          y: pad + Math.floor(n / cols) * (ih + pad),
+          w: iw,
+          h: ih
+        };
+      }
+      img.style.setProperty('--x', placed.x + 'px');
+      img.style.setProperty('--y', placed.y + 'px');
+      rects.push(placed);
+    }
+
+    function unlockFunnyAlbumPhoto(path) {
+      if (funnyAlbumUnlocked.indexOf(path) !== -1) return;
+      funnyAlbumUnlocked.push(path);
+      var album = document.getElementById('rue-album');
+      var hint = album.querySelector('.rue-album-hint');
+      if (hint) hint.remove();
+      var thumb = document.createElement('img');
+      thumb.className = 'rue-album-thumb';
+      thumb.src = photoUrl(path);
+      thumb.alt = 'silly moment';
+      thumb.addEventListener('click', function (e) {
+        e.stopPropagation();
+        openPhotoLightbox(path);
+        startGradAudio();
+      });
+      requestAnimationFrame(function () {
+        placeOnPhotoBoard(thumb, album, photoBoardRects);
+        updateLayoutMetrics();
+      });
+    }
+
+    function updateLayoutMetrics() {
+      var wrap = document.getElementById('petri-wrap');
+      var bench = document.getElementById('lab-bench');
+      var chrome = 300;
+      if (wrap && bench) {
+        var above = wrap.getBoundingClientRect().top;
+        var below = bench.getBoundingClientRect().bottom - wrap.getBoundingClientRect().bottom;
+        chrome = above + below + 16;
+      }
+      chrome = Math.max(260, Math.min(500, Math.ceil(chrome)));
+      document.documentElement.style.setProperty('--game-chrome', chrome + 'px');
+      if (pondRunning) resizePond();
+    }
+
+    function spawnHeart(x, y) {
+      var h = document.createElement('span');
+      h.className = 'float-heart';
+      h.textContent = '♡';
+      h.style.left = (x + (Math.random() - 0.5) * 24) + 'px';
+      h.style.top = (y + (Math.random() - 0.5) * 12) + 'px';
+      document.body.appendChild(h);
+      setTimeout(function () { h.remove(); }, 1000);
+    }
+
+    function populateRewardFaces() {
+      var grid = document.getElementById('reward-faces');
+      grid.innerHTML = '';
+      if (!galleryPhotos.length) {
+        grid.innerHTML = '<p class="reward-no-photos">add photos to Shalini/photos/Shalini-with-Rue/</p>';
+        return;
+      }
+      var centerPath = galleryPhotos.indexOf(GALLERY_CENTER_PHOTO) !== -1
+        ? GALLERY_CENTER_PHOTO
+        : galleryPhotos[0];
+      var others = galleryPhotos.filter(function (p) { return p !== centerPath; }).slice(0, 8);
+      /* 3×3 — center cell (index 4) */
+      var slots = others.slice(0, 4).concat([centerPath], others.slice(4, 8));
+
+      slots.forEach(function (path) {
+        var img = document.createElement('img');
+        img.src = photoUrl(path);
+        img.alt = 'you and rue';
+        if (path === centerPath) img.classList.add('center-feature');
+        img.addEventListener('click', function () { openPhotoLightbox(path); });
+        grid.appendChild(img);
+      });
+    }
+
+    function showRewardTab() {
+      document.getElementById('reward-tab').classList.add('visible');
+      updateLayoutMetrics();
+    }
+
+    function hideRewardTab() {
+      document.getElementById('reward-tab').classList.remove('visible');
+      updateLayoutMetrics();
+    }
+
+    function closeRewardCard() {
+      document.getElementById('reward-overlay').classList.remove('open');
+      if (rewardUnlocked) showRewardTab();
+    }
+
+    function openRewardCard() {
+      populateRewardFaces();
+      hideRewardTab();
+      document.getElementById('reward-overlay').classList.add('open');
+      startGradAudio();
+    }
+
+    function tryShowReward() {
+      if (!rewardUnlocked) return;
+      if (!rewardAutoShown) {
+        rewardAutoShown = true;
+        openRewardCard();
+      }
+    }
+
+    document.getElementById('reward-close').addEventListener('click', function (e) {
+      e.stopPropagation();
+      closeRewardCard();
+    });
+
+    document.getElementById('reward-overlay').addEventListener('click', function (e) {
+      if (e.target === this) closeRewardCard();
+    });
+
+    document.getElementById('reward-tab').addEventListener('click', function (e) {
+      e.stopPropagation();
+      openRewardCard();
+    });
+
+    function preloadRueGameImages(paths) {
+      rueGameImages = [];
+      paths.forEach(function (path) {
+        var img = new Image();
+        img.src = path;
+        rueGameImages.push(img);
+      });
+    }
+
+    loadPhotoList(RUE_GAME_FILES, function (paths) {
+      rueGamePhotos = paths;
+      preloadRueGameImages(paths);
+      colonies.forEach(function (c) {
+        if (c.rare && !c.isolated) c.showRue = paths.length > 0;
+      });
+      if (paths.length && pondRunning) drawPond();
+    });
+    loadPhotoList(FUNNY_PHOTO_FILES, function (paths) {
+      funnyPhotos = paths.map(function (path) {
+        return { path: path, caption: captionFromPhotoPath(path) };
+      });
+    });
+    loadPhotoList(GALLERY_PHOTO_FILES, function (paths) {
+      galleryPhotos = paths;
+    });
+
+    window.addEventListener('resize', updateLayoutMetrics);
+    document.querySelector('.game-instructions').addEventListener('toggle', updateLayoutMetrics);
+    requestAnimationFrame(updateLayoutMetrics);
+
+    /* petri dish colony culture */
+    var pondCanvas = document.getElementById('play-pond');
+    var pondCtx = pondCanvas.getContext('2d');
+    var pondTime = 0;
+    var pondRunning = false;
+    var colonies = [];
+    var rue = { x: 0, y: 0, vx: 0, vy: 0, angle: 0, scared: 0, size: 20, purr: 0 };
+    var dishR = 0;
+    var dishCx = 0;
+    var dishCy = 0;
+    var incubating = 0;
+    var stainPhase = 0;
+
+    function resizePond() {
+      var wrap = document.getElementById('petri-wrap');
+      var sz = Math.floor(wrap.getBoundingClientRect().width);
+      if (sz < 1) return;
+      var prev = pondCanvas.width;
+      var ratio = prev > 0 ? sz / prev : 1;
+      pondCanvas.width = sz;
+      pondCanvas.height = sz;
+      dishR = sz * 0.46;
+      dishCx = sz / 2;
+      dishCy = sz / 2;
+      if (colonies.length === 0) {
+        initPond();
+      } else if (prev > 0 && Math.abs(ratio - 1) > 0.02) {
+        var ocx = prev / 2, ocy = prev / 2;
+        colonies.forEach(function (c) {
+          c.x = dishCx + (c.x - ocx) * ratio;
+          c.y = dishCy + (c.y - ocy) * ratio;
+          c.radius *= ratio;
+          c.maxRadius *= ratio;
+        });
+        rue.x = dishCx + (rue.x - ocx) * ratio;
+        rue.y = dishCy + (rue.y - ocy) * ratio;
+      }
+    }
+
+    function randomInDish(margin) {
+      margin = margin || 16;
+      var r = dishR - margin;
+      var a = Math.random() * Math.PI * 2;
+      var d = Math.sqrt(Math.random()) * r;
+      return { x: dishCx + Math.cos(a) * d, y: dishCy + Math.sin(a) * d };
+    }
+
+    function createColony(x, y, small, forceRare) {
+      var pos = x != null ? { x: x, y: y } : randomInDish(22);
+      var rare = forceRare || (!small && Math.random() < 0.14);
+      return {
+        x: pos.x,
+        y: pos.y,
+        vx: (Math.random() - 0.5) * 0.12,
+        vy: (Math.random() - 0.5) * 0.1,
+        radius: small ? 2 + Math.random() * 2.5 : 5 + Math.random() * 4,
+        maxRadius: rare ? 16 + Math.random() * 8 : 12 + Math.random() * 9,
+        growth: small ? 0.15 : 0.35 + Math.random() * 0.25,
+        hue: rare ? 42 : [130, 340, 45, 200, 280][Math.floor(Math.random() * 5)],
+        sat: rare ? 55 : 28 + Math.random() * 22,
+        phase: Math.random() * Math.PI * 2,
+        lobes: 5 + Math.floor(Math.random() * 4),
+        pulse: 0,
+        rare: rare,
+        showRue: rare && rueGameImages.length > 0,
+        isolated: false,
+        contam: 0
+      };
+    }
+
+    function spawnTreat() {
+      if (treats.length >= 2) return;
+      var pos = randomInDish(30);
+      treats.push({ x: pos.x, y: pos.y, life: 1, bob: Math.random() * Math.PI * 2 });
+    }
+
+    function leavePawPrint(x, y) {
+      pawPrints.push({ x: x, y: y, life: 1, rot: Math.random() * 0.8 - 0.4 });
+      if (pawPrints.length > 12) pawPrints.shift();
+    }
+
+    function colonyMature(c) {
+      return c.radius >= c.maxRadius * MATURE_RATIO;
+    }
+
+    function initPond() {
+      colonies = [];
+      for (var i = 0; i < 4; i++) colonies.push(createColony());
+      colonies.push(createColony(null, null, false, true));
+      var rp = randomInDish(28);
+      rue.x = rp.x;
+      rue.y = rp.y;
+      rue.vx = (Math.random() - 0.5) * 0.5;
+      rue.vy = (Math.random() - 0.5) * 0.4;
+    }
+
+    function toolCount() {
+      var t = goals.tools;
+      return (t.microscope ? 1 : 0) + (t.stain ? 1 : 0) + (t.incubate ? 1 : 0) + (t.inoculate ? 1 : 0);
+    }
+
+    function getCfuPercent() {
+      var p = 0;
+      p += Math.min(1, goals.isolates / goals.isolatesNeed) * 40;
+      p += Math.min(1, goals.rare / goals.rareNeed) * 10;
+      p += Math.min(1, goals.rue / goals.rueNeed) * 25;
+      p += (toolCount() / 4) * 25;
+      return Math.min(100, Math.round(p));
+    }
+
+    function updateQuestUI() {
+      var qi = document.getElementById('q-isolate');
+      var qr = document.getElementById('q-rare');
+      var qru = document.getElementById('q-rue');
+      var qt = document.getElementById('q-tools');
+      qi.textContent = 'mature isolates ' + goals.isolates + '/' + goals.isolatesNeed;
+      qr.textContent = 'honors strain ' + goals.rare + '/' + goals.rareNeed;
+      qru.textContent = 'rue samples ' + goals.rue + '/' + goals.rueNeed;
+      qt.textContent = 'protocol ' + toolCount() + '/4';
+      qi.classList.toggle('done', goals.isolates >= goals.isolatesNeed);
+      qr.classList.toggle('done', goals.rare >= goals.rareNeed);
+      qru.classList.toggle('done', goals.rue >= goals.rueNeed);
+      qt.classList.toggle('done', toolCount() >= 4);
+    }
+
+    function updateCfuBar() {
+      var pct = getCfuPercent();
+      document.getElementById('cfu-fill').style.width = pct + '%';
+      document.getElementById('cfu-pct').textContent = pct + '%';
+      updateQuestUI();
+      if (pct >= 100) {
+        rewardUnlocked = true;
+        tryShowReward();
+      }
+    }
+
+    function markToolUsed(tool) {
+      if (!goals.tools[tool]) {
+        goals.tools[tool] = true;
+        updateCfuBar();
+      }
+    }
+
+    function drawAgar() {
+      var w = pondCanvas.width, h = pondCanvas.height;
+      pondCtx.save();
+      pondCtx.beginPath();
+      pondCtx.arc(dishCx, dishCy, dishR, 0, Math.PI * 2);
+      pondCtx.clip();
+      var ag = pondCtx.createRadialGradient(dishCx, dishCy, 0, dishCx, dishCy, dishR);
+      ag.addColorStop(0, '#f7f2dc');
+      ag.addColorStop(0.55, '#efe6c8');
+      ag.addColorStop(1, '#e2d4b0');
+      pondCtx.fillStyle = ag;
+      pondCtx.fillRect(0, 0, w, h);
+      for (var i = 0; i < 40; i++) {
+        var sx = dishCx + (Math.sin(i * 2.7 + pondTime * 0.2) * dishR * 0.7);
+        var sy = dishCy + (Math.cos(i * 1.9) * dishR * 0.65);
+        pondCtx.beginPath();
+        pondCtx.arc(sx, sy, 0.6 + (i % 3) * 0.3, 0, Math.PI * 2);
+        pondCtx.fillStyle = 'rgba(160,140,100,0.12)';
+        pondCtx.fill();
+      }
+      if (stainPhase > 0) {
+        pondCtx.fillStyle = 'rgba(220, 140, 160, ' + (stainPhase * 0.22) + ')';
+        pondCtx.fillRect(0, 0, w, h);
+        stainPhase *= 0.985;
+        if (stainPhase < 0.02) stainPhase = 0;
+      }
+      for (var p = pawPrints.length - 1; p >= 0; p--) {
+        var pp = pawPrints[p];
+        pp.life -= 0.004;
+        if (pp.life <= 0) { pawPrints.splice(p, 1); continue; }
+        pondCtx.save();
+        pondCtx.translate(pp.x, pp.y);
+        pondCtx.rotate(pp.rot);
+        pondCtx.globalAlpha = pp.life * 0.35;
+        pondCtx.font = '11px serif';
+        pondCtx.textAlign = 'center';
+        pondCtx.fillText('🐾', 0, 0);
+        pondCtx.restore();
+      }
+      pondCtx.restore();
+    }
+
+    function drawTreats() {
+      for (var t = treats.length - 1; t >= 0; t--) {
+        var tr = treats[t];
+        tr.bob += 0.08;
+        tr.life -= 0.0012;
+        if (tr.life <= 0) { treats.splice(t, 1); continue; }
+        var bobY = Math.sin(tr.bob) * 2;
+        pondCtx.save();
+        pondCtx.translate(tr.x, tr.y + bobY);
+        pondCtx.globalAlpha = 0.85 + Math.sin(tr.bob) * 0.1;
+        pondCtx.font = '16px serif';
+        pondCtx.textAlign = 'center';
+        pondCtx.textBaseline = 'middle';
+        pondCtx.fillText('🐟', 0, 0);
+        pondCtx.restore();
+        var dx = tr.x - rue.x, dy = tr.y - rue.y;
+        if (dx * dx + dy * dy < 900) {
+          rue.vx += (dx / 30) * 0.08;
+          rue.vy += (dy / 30) * 0.08;
+        }
+      }
+    }
+
+    function updateColony(c) {
+      if (c.isolated) return;
+      var growMul = incubating > 0 ? 2.4 : 1;
+      if (c.contam > 0) {
+        c.contam *= 0.96;
+        growMul *= 0.35;
+      }
+      if (c.radius < c.maxRadius) c.radius += c.growth * growMul * 0.035;
+      c.x += c.vx;
+      c.y += c.vy;
+      c.vx += (Math.random() - 0.5) * 0.008;
+      c.vy += (Math.random() - 0.5) * 0.006;
+      c.vx *= 0.998;
+      c.vy *= 0.998;
+      clampInDish(c, c.radius + 4);
+    }
+
+    function drawColony(c) {
+      if (c.pulse > 0) c.pulse *= 0.9;
+      pondCtx.save();
+      pondCtx.translate(c.x, c.y);
+      if (c.isolated) pondCtx.globalAlpha = 0.35;
+      else if (!colonyMature(c)) pondCtx.globalAlpha = 0.65;
+      if (microscopeZoom && colonyMature(c) && !c.isolated) {
+        pondCtx.beginPath();
+        pondCtx.arc(0, 0, c.radius + 4, 0, Math.PI * 2);
+        pondCtx.strokeStyle = 'rgba(255,255,255,0.85)';
+        pondCtx.lineWidth = 1.5;
+        pondCtx.stroke();
+      }
+      if (c.rare && !c.isolated) {
+        pondCtx.beginPath();
+        pondCtx.arc(0, 0, c.radius + 3, 0, Math.PI * 2);
+        pondCtx.strokeStyle = 'rgba(245,196,0,0.75)';
+        pondCtx.lineWidth = 1.2;
+        pondCtx.stroke();
+      }
+      for (var i = 0; i < c.lobes; i++) {
+        var a = (i / c.lobes) * Math.PI * 2 + c.phase + pondTime * 0.15;
+        var wob = 1 + Math.sin(pondTime * 3 + c.phase + i) * 0.08;
+        var lr = c.radius * (0.55 + (i % 3) * 0.12) * wob * (1 + c.pulse * 0.15);
+        var lx = Math.cos(a) * c.radius * 0.35;
+        var ly = Math.sin(a) * c.radius * 0.35;
+        pondCtx.beginPath();
+        pondCtx.arc(lx, ly, lr, 0, Math.PI * 2);
+        pondCtx.fillStyle = 'hsla(' + c.hue + ',' + c.sat + '%,72%,0.82)';
+        pondCtx.fill();
+        pondCtx.strokeStyle = 'hsla(' + c.hue + ',' + (c.sat + 10) + '%,55%,0.35)';
+        pondCtx.lineWidth = 0.8;
+        pondCtx.stroke();
+      }
+      pondCtx.beginPath();
+      pondCtx.arc(0, 0, c.radius * 0.45, 0, Math.PI * 2);
+      pondCtx.fillStyle = 'hsla(' + c.hue + ',' + c.sat + '%,78%,0.9)';
+      pondCtx.fill();
+      if (c.rare && c.showRue && colonyMature(c) && rueGameImages[0] && rueGameImages[0].complete) {
+        var pr = c.radius * 0.55;
+        pondCtx.save();
+        pondCtx.beginPath();
+        pondCtx.arc(0, 0, pr, 0, Math.PI * 2);
+        pondCtx.clip();
+        pondCtx.drawImage(rueGameImages[0], -pr, -pr, pr * 2, pr * 2);
+        pondCtx.restore();
+      }
+      pondCtx.globalAlpha = 1;
+      pondCtx.restore();
+    }
+
+    function rueContaminates() {
+      for (var i = 0; i < colonies.length; i++) {
+        var c = colonies[i];
+        if (c.isolated) continue;
+        var dx = c.x - rue.x, dy = c.y - rue.y;
+        if (dx * dx + dy * dy < (c.radius + 22) * (c.radius + 22)) {
+          c.contam = Math.max(c.contam, 0.5);
+        }
+      }
+    }
+
+    function varColor(name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim() || '#5a7a6a';
+    }
+
+    function drawRue() {
+      pondCtx.save();
+      pondCtx.translate(rue.x, rue.y);
+      var sz = rue.size * 2.6;
+      if (rue.purr > 0.3) {
+        pondCtx.beginPath();
+        pondCtx.arc(0, 0, sz * 0.65, 0, Math.PI * 2);
+        pondCtx.fillStyle = 'rgba(255,180,200,' + (rue.purr * 0.25) + ')';
+        pondCtx.fill();
+      }
+      if (rueGameImages.length > 0 && rueGameImages[0].complete) {
+        var img = rueGameImages[0];
+        pondCtx.beginPath();
+        pondCtx.arc(0, 0, sz * 0.48, 0, Math.PI * 2);
+        pondCtx.closePath();
+        pondCtx.clip();
+        pondCtx.drawImage(img, -sz * 0.48, -sz * 0.48, sz * 0.96, sz * 0.96);
+        pondCtx.strokeStyle = '#fff';
+        pondCtx.lineWidth = 2;
+        pondCtx.beginPath();
+        pondCtx.arc(0, 0, sz * 0.48, 0, Math.PI * 2);
+        pondCtx.stroke();
+      } else {
+        pondCtx.font = (rue.size * 1.6) + 'px serif';
+        pondCtx.textAlign = 'center';
+        pondCtx.textBaseline = 'middle';
+        pondCtx.fillText('🐱', 0, 0);
+      }
+      pondCtx.restore();
+    }
+
+    function clampInDish(ent, pad) {
+      var dx = ent.x - dishCx, dy = ent.y - dishCy;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+      var maxD = dishR - (pad || 12);
+      if (dist > maxD) {
+        ent.x = dishCx + (dx / dist) * maxD;
+        ent.y = dishCy + (dy / dist) * maxD;
+        if (ent.vx != null) { ent.vx *= -0.7; ent.vy *= -0.7; }
+      }
+    }
+
+    function updateRue() {
+      if (rue.scared > 0) rue.scared *= 0.94;
+      if (rue.purr > 0) rue.purr *= 0.95;
+      rue.x += rue.vx * (1 + rue.scared * 6);
+      rue.y += rue.vy * (1 + rue.scared * 6);
+      rue.vx += (Math.random() - 0.5) * 0.025;
+      rue.vy += (Math.random() - 0.5) * 0.02;
+      rue.vx *= 0.992;
+      rue.vy *= 0.992;
+      clampInDish(rue, 18);
+      var sp = Math.sqrt(rue.vx * rue.vx + rue.vy * rue.vy);
+      if (sp > 0.35) leavePawPrint(rue.x, rue.y);
+      if (sp > 0.12) rue.angle = Math.atan2(rue.vy, rue.vx) * 0.25;
+    }
+
+    function drawPond() {
+      var w = pondCanvas.width, h = pondCanvas.height;
+      pondCtx.clearRect(0, 0, w, h);
+      if (incubating > 0) incubating--;
+      treatTimer++;
+      if (treatTimer > 520 && treats.length < 1) {
+        treatTimer = 0;
+        spawnTreat();
+      }
+      drawAgar();
+      pondCtx.save();
+      pondCtx.beginPath();
+      pondCtx.arc(dishCx, dishCy, dishR, 0, Math.PI * 2);
+      pondCtx.clip();
+      drawTreats();
+      for (var j = 0; j < colonies.length; j++) {
+        updateColony(colonies[j]);
+        drawColony(colonies[j]);
+      }
+      updateRue();
+      rueContaminates();
+      drawRue();
+      for (var ti = treats.length - 1; ti >= 0; ti--) {
+        var dx = treats[ti].x - rue.x, dy = treats[ti].y - rue.y;
+        if (dx * dx + dy * dy < 28 * 28) {
+          treats.splice(ti, 1);
+          rue.purr = 1;
+          incubating = Math.max(incubating, 120);
+          colonies.forEach(function (c) { if (!c.isolated) c.pulse = 0.4; });
+        }
+      }
+      if (colonies.filter(function (c) { return !c.isolated; }).length < 3) {
+        colonies.push(createColony());
+      }
+      pondCtx.restore();
+      pondCtx.beginPath();
+      pondCtx.arc(dishCx, dishCy, dishR, 0, Math.PI * 2);
+      pondCtx.strokeStyle = 'rgba(255,255,255,0.35)';
+      pondCtx.lineWidth = 2;
+      pondCtx.stroke();
+    }
+
+    function pondLoop() {
+      if (!pondRunning) return;
+      pondTime += 0.016;
+      drawPond();
+      requestAnimationFrame(pondLoop);
+    }
+
+    function startPond() {
+      if (pondRunning) return;
+      updateLayoutMetrics();
+      resizePond();
+      pondRunning = true;
+      pondLoop();
+      requestAnimationFrame(function () {
+        updateLayoutMetrics();
+        resizePond();
+      });
+    }
+
+    if (window.ResizeObserver) {
+      new ResizeObserver(function () {
+        updateLayoutMetrics();
+      }).observe(document.getElementById('game-shell'));
+    }
+
+    function stopPond() {
+      pondRunning = false;
+    }
+
+    function inoculateAt(cx, cy, silent) {
+      var dx = cx - dishCx, dy = cy - dishCy;
+      if (dx * dx + dy * dy > (dishR - 10) * (dishR - 10)) return false;
+      colonies.push(createColony(cx, cy, true));
+      if (colonies.length > 18) colonies.shift();
+      if (!silent) startGradAudio();
+      return true;
+    }
+
+    function tapColonyAt(cx, cy) {
+      for (var i = 0; i < colonies.length; i++) {
+        var c = colonies[i];
+        if (c.isolated) continue;
+        var dx = c.x - cx, dy = c.y - cy;
+        if (dx * dx + dy * dy < (c.radius + 10) * (c.radius + 10)) {
+          var rect = pondCanvas.getBoundingClientRect();
+          if (!colonyMature(c)) {
+            c.pulse = 0.5;
+            startGradAudio();
+            return true;
+          }
+          c.pulse = 1;
+          c.isolated = true;
+          c.vx = 0;
+          c.vy = 0;
+          if (goals.isolates < goals.isolatesNeed) {
+            goals.isolates++;
+          }
+          if (c.rare) {
+            if (goals.rare < goals.rareNeed) {
+              goals.rare++;
+            }
+            revealNextFunnyPhoto(rect.left + cx, rect.top + cy);
+          }
+          updateCfuBar();
+          colonies.push(createColony());
+          startGradAudio();
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function boopRueAt(cx, cy) {
+      var dx = rue.x - cx, dy = rue.y - cy;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 42) {
+        var strength = 1 - dist / 48;
+        var sp = Math.sqrt(rue.vx * rue.vx + rue.vy * rue.vy);
+        var gentle = sp < 0.55 && rue.scared < 0.2;
+        rue.scared = Math.max(rue.scared, gentle ? strength * 0.3 : strength);
+        var ang = Math.atan2(dy, dx);
+        rue.vx += Math.cos(ang) * strength * (gentle ? 1.5 : 4);
+        rue.vy += Math.sin(ang) * strength * (gentle ? 1.5 : 4);
+        var rect = pondCanvas.getBoundingClientRect();
+        if (gentle) {
+          for (var hi = 0; hi < 3; hi++) spawnHeart(rect.left + cx, rect.top + cy);
+        } else {
+          spawnPaws(rect.left + cx, rect.top + cy);
+        }
+        revealNextFunnyPhoto(rect.left + cx, rect.top + cy);
+        if (gentle) rue.purr = 1;
+        if (goals.rue < goals.rueNeed) {
+          goals.rue++;
+          updateCfuBar();
+        }
+        startGradAudio();
+        return true;
+      }
+      return false;
+    }
+
+    function tapTreatAt(cx, cy) {
+      for (var i = treats.length - 1; i >= 0; i--) {
+        var tr = treats[i];
+        var dx = tr.x - cx, dy = tr.y - cy;
+        if (dx * dx + dy * dy < 24 * 24) {
+          treats.splice(i, 1);
+          var rect = pondCanvas.getBoundingClientRect();
+          var ang = Math.atan2(rue.y - tr.y, rue.x - tr.x);
+          rue.vx += Math.cos(ang) * 2;
+          rue.vy += Math.sin(ang) * 2;
+          incubating = Math.max(incubating, 90);
+          startGradAudio();
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function handleDishPointer(cx, cy, clientX, clientY, isStreak) {
+      if (tapTreatAt(cx, cy)) return;
+      if (!tapColonyAt(cx, cy) && !boopRueAt(cx, cy)) {
+        var now = Date.now();
+        if (!isStreak || now - lastStreakAt > 120) {
+          lastStreakAt = now;
+          inoculateAt(cx, cy, true);
+        }
+      }
+    }
+
+    pondCanvas.addEventListener('pointerdown', function (e) {
+      e.stopPropagation();
+      isDragging = true;
+      pondCanvas.setPointerCapture(e.pointerId);
+      var rect = pondCanvas.getBoundingClientRect();
+      handleDishPointer(e.clientX - rect.left, e.clientY - rect.top, e.clientX, e.clientY, false);
+    });
+
+    pondCanvas.addEventListener('pointermove', function (e) {
+      if (!isDragging) return;
+      var rect = pondCanvas.getBoundingClientRect();
+      handleDishPointer(e.clientX - rect.left, e.clientY - rect.top, e.clientX, e.clientY, true);
+    });
+
+    pondCanvas.addEventListener('pointerup', function (e) {
+      isDragging = false;
+      try { pondCanvas.releasePointerCapture(e.pointerId); } catch (err) {}
+    });
+
+    pondCanvas.addEventListener('pointercancel', function () {
+      isDragging = false;
+    });
+
+    document.querySelectorAll('.lab-tool').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        startGradAudio();
+        var tool = btn.getAttribute('data-lab');
+        var wrap = document.getElementById('petri-wrap');
+        document.querySelectorAll('.lab-tool').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        setTimeout(function () { btn.classList.remove('active'); }, 600);
+
+        markToolUsed(tool);
+        if (tool === 'microscope') {
+          microscopeZoom = !microscopeZoom;
+          wrap.classList.toggle('zoomed', microscopeZoom);
+        } else if (tool === 'stain') {
+          stainPhase = 1;
+          colonies.forEach(function (c) {
+            if (!c.isolated && c.contam > 0) c.contam = 0;
+          });
+        } else if (tool === 'incubate') {
+          incubating = 300;
+          spawnTreat();
+          colonies.forEach(function (c) { if (!c.isolated) c.pulse = 0.6; });
+        } else if (tool === 'inoculate') {
+          inoculateAt(null, null, true);
+          inoculateAt(null, null, true);
+          if (colonies.filter(function (c) { return c.rare && !c.isolated; }).length === 0 && goals.rare < goals.rareNeed) {
+            colonies.push(createColony(null, null, false, true));
+          }
+        }
+      });
+    });
+
+    document.getElementById('lab-bench').addEventListener('click', function (e) {
+      if (e.target.closest('.lab-tool') || e.target.closest('#play-zone')) return;
+      startGradAudio();
+    });
+
+    window.addEventListener('resize', function () {
+      updateLayoutMetrics();
+    });
+
+    updateQuestUI();
+
+    if (document.readyState === 'complete') startPond();
+    else window.addEventListener('load', startPond);
+  </script>
+</body>
+</html>
