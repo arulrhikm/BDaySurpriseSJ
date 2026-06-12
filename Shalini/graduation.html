@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <title>Happy Graduation, Shalini ♡</title>
   <meta name="description" content="A soft indie scrapbook graduation card for Shalini">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -88,6 +90,7 @@
 
     html {
       height: 100%;
+      -webkit-text-size-adjust: 100%;
       background: var(--bg-gradient);
       background-attachment: fixed;
       background-size: cover;
@@ -96,16 +99,23 @@
 
     body {
       min-height: 100dvh;
+      min-height: 100svh;
       font-family: 'Patrick Hand', cursive;
       color: var(--ink);
       background: transparent;
       overflow-x: hidden;
       overflow-y: auto;
+      overscroll-behavior-y: contain;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 6px 8px 12px;
+      padding:
+        max(6px, env(safe-area-inset-top))
+        max(8px, env(safe-area-inset-right))
+        max(12px, env(safe-area-inset-bottom))
+        max(8px, env(safe-area-inset-left));
       transition: color 0.4s ease;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .hint {
@@ -120,6 +130,8 @@
     /* ── TOP SOUNDTRACK BAR ── */
     .soundtrack-bar {
       flex-shrink: 0;
+      position: sticky;
+      top: 0;
       z-index: 60;
       width: min(96vw, 720px);
       background: var(--cream);
@@ -168,12 +180,14 @@
     .st-tab {
       font-family: 'Patrick Hand', cursive;
       font-size: 0.88rem;
-      padding: 8px 4px;
+      padding: 10px 6px;
+      min-height: 44px;
       border: 2px dashed var(--sage);
       background: var(--cream-deep);
       color: var(--ink);
       border-radius: 6px;
       cursor: pointer;
+      touch-action: manipulation;
       transition: all 0.3s ease;
     }
 
@@ -302,15 +316,18 @@
       font-size: clamp(0.7rem, 2.2vw, 0.8rem);
       line-height: 1.1;
       width: clamp(52px, 14vw, 64px);
+      min-height: 48px;
       padding: 8px 4px;
       border: 2px dashed var(--sage);
       border-radius: 10px;
       background: rgba(255,255,255,0.85);
       cursor: pointer;
+      touch-action: manipulation;
       transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       gap: 2px;
     }
     .lab-tool .tool-icon { font-size: clamp(1.15rem, 4vw, 1.45rem); line-height: 1; }
@@ -370,6 +387,7 @@
       overflow: hidden;
       background: #c5d3df;
       cursor: crosshair;
+      touch-action: none;
     }
     .petri-rim canvas {
       display: block;
@@ -514,14 +532,65 @@
     }
     .lab-specimen-id { display: none; }
 
+    @media (max-width: 520px) {
+      .soundtrack-bar { padding: 8px 10px; }
+      .st-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+        margin-bottom: 8px;
+      }
+      .st-label { font-size: 1.1rem; text-align: center; }
+      .st-now { text-align: center; font-size: 1rem; }
+      .st-tabs { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .st-tab { font-size: 0.95rem; padding: 12px 8px; }
+      .game-title { font-size: 1.35rem; }
+      .game-instructions { font-size: 0.75rem; }
+      .lab-bench { padding: 8px 10px 10px; }
+      .lab-stage {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto auto;
+        gap: 8px;
+      }
+      .petri-wrap {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        width: min(calc(100vw - 36px), calc(100svh - var(--game-chrome)), 380px);
+        margin: 0 auto;
+      }
+      .lab-tool {
+        width: 100%;
+        min-height: 52px;
+        font-size: 0.78rem;
+      }
+      .lab-tool .tool-icon { font-size: 1.35rem; }
+      .lab-tool[data-lab="microscope"] { grid-column: 1; grid-row: 2; }
+      .lab-tool[data-lab="stain"] { grid-column: 2; grid-row: 2; }
+      .lab-tool[data-lab="incubate"] { grid-column: 3; grid-row: 2; }
+      .lab-tool[data-lab="inoculate"] { grid-column: 4; grid-row: 2; }
+      .lab-quests { font-size: 0.68rem; gap: 4px 6px; }
+      .rue-album:has(.rue-album-thumb) { min-height: 120px; }
+      .rue-album-thumb { width: clamp(50px, 14vw, 64px); }
+      .reward-tab {
+        padding: 14px 16px;
+        font-size: 1.1rem;
+        min-height: 48px;
+      }
+      .reward-panel {
+        width: 100%;
+        max-height: calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 24px);
+        padding: 18px 14px 16px;
+      }
+      .reward-msg { font-size: 1rem; }
+      .reward-faces { gap: 6px; margin-top: 10px; }
+      .reward-close {
+        min-height: 44px;
+        padding: 8px 14px;
+        font-size: 1.05rem;
+      }
+    }
+
     @media (max-width: 500px) {
-      .soundtrack-bar { padding: 7px 8px; margin-bottom: 4px; }
-      .st-header { margin-bottom: 5px; }
-      .st-label { font-size: 1.05rem; }
-      .st-now { font-size: 0.82rem; min-width: 0; }
-      .st-tab { font-size: 0.8rem; padding: 6px 3px; }
-      .lab-tool { width: 48px; padding: 6px 2px; }
-      .rue-album-thumb { width: 48px; }
       .polaroid-pop { width: 110px; padding: 4px 4px 16px; }
     }
 
@@ -705,12 +774,39 @@
       background: var(--pale-yellow);
       transform: translateY(-1px);
     }
+
+    .audio-hint {
+      position: fixed;
+      bottom: max(14px, env(safe-area-inset-bottom));
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 70;
+      font-family: 'Caveat', cursive;
+      font-size: 1rem;
+      color: var(--ink);
+      background: var(--cream);
+      border: 2px dashed var(--sage);
+      border-radius: 999px;
+      padding: 10px 18px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      touch-action: manipulation;
+      white-space: nowrap;
+      animation: hintBob 2s ease-in-out infinite;
+    }
+    .audio-hint.hidden { display: none; }
+    @keyframes hintBob {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-4px); }
+    }
   </style>
 </head>
 <body>
 
   <iframe id="yt-grad" allow="autoplay; encrypted-media" src="https://www.youtube.com/embed/lSD_L-xic9o?enablejsapi=1&amp;loop=1&amp;playlist=lSD_L-xic9o&amp;controls=0&amp;modestbranding=1&amp;rel=0"></iframe>
   <script src="https://www.youtube.com/iframe_api"></script>
+
+  <button type="button" class="audio-hint" id="audio-hint">tap for music ♪</button>
 
   <header class="soundtrack-bar" id="soundtrack-bar">
     <div class="st-header">
@@ -911,7 +1007,10 @@
           onReady: function (event) {
             ytReady = true;
             event.target.setVolume(100);
-            event.target.playVideo();
+            if (pendingTrackPlay) {
+              event.target.playVideo();
+              hideAudioHint();
+            }
           },
           onStateChange: function (e) {
             if (!ytPlayer) return;
@@ -934,11 +1033,17 @@
       });
     }
 
+    function hideAudioHint() {
+      var hint = document.getElementById('audio-hint');
+      if (hint) hint.classList.add('hidden');
+    }
+
     function playActiveTrack() {
       if (!ytReady || !ytPlayer || !ytPlayer.playVideo) return;
       pendingTrackPlay = true;
       ytPlayer.setVolume(100);
       ytPlayer.playVideo();
+      hideAudioHint();
     }
 
     function startGradAudio() {
@@ -974,6 +1079,12 @@
       pendingTrackPlay = true;
       playActiveTrack();
     }, { once: true });
+
+    document.getElementById('audio-hint').addEventListener('click', function (e) {
+      e.stopPropagation();
+      setArtist('laufey');
+      hideAudioHint();
+    });
 
     document.documentElement.setAttribute('data-theme', 'laufey');
 
