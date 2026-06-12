@@ -173,9 +173,7 @@
       gap: 6px;
     }
 
-    @media (max-width: 500px) {
-      .st-tabs { grid-template-columns: repeat(2, 1fr); }
-    }
+    .st-label-desk { display: inline; }
 
     .st-tab {
       font-family: 'Patrick Hand', cursive;
@@ -532,20 +530,48 @@
     }
     .lab-specimen-id { display: none; }
 
-    @media (max-width: 520px) {
-      .soundtrack-bar { padding: 8px 10px; }
-      .st-header {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 2px;
-        margin-bottom: 8px;
+    /* phone + tablet — rectangular slide, compact chrome, tools below dish */
+    @media (max-width: 900px) {
+      .soundtrack-bar {
+        width: 100%;
+        padding: 5px 8px;
+        margin-bottom: 4px;
+        border-radius: 6px;
       }
-      .st-label { font-size: 1.1rem; text-align: center; }
-      .st-now { text-align: center; font-size: 1rem; }
-      .st-tabs { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-      .st-tab { font-size: 0.95rem; padding: 12px 8px; }
-      .game-title { font-size: 1.35rem; }
-      .game-instructions { font-size: 0.75rem; }
+      .st-header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 6px;
+        margin-bottom: 5px;
+        flex-wrap: nowrap;
+      }
+      .st-label {
+        font-size: 0.88rem;
+        line-height: 1.1;
+        white-space: nowrap;
+      }
+      .st-label-desk { display: none; }
+      .st-now {
+        font-size: 0.82rem;
+        text-align: right;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .st-tabs {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4px;
+      }
+      .st-tab {
+        font-size: clamp(0.62rem, 2.6vw, 0.74rem);
+        padding: 5px 2px;
+        min-height: 34px;
+        border-radius: 5px;
+        border-width: 1.5px;
+      }
+      .game-title { font-size: clamp(1.15rem, 4vw, 1.4rem); }
+      .game-instructions { font-size: 0.75rem; padding: 6px 8px; }
       .lab-bench { padding: 8px 10px 10px; }
       .lab-stage {
         grid-template-columns: repeat(4, 1fr);
@@ -555,26 +581,32 @@
       .petri-wrap {
         grid-column: 1 / -1;
         grid-row: 1;
-        width: min(calc(100vw - 36px), calc(100svh - var(--game-chrome)), 380px);
+        width: min(calc(100vw - 28px), 100%);
+        max-height: min(38svh, 300px);
+        aspect-ratio: 16 / 10;
         margin: 0 auto;
+      }
+      .petri-rim {
+        border-radius: 14px;
+        border-width: 4px;
       }
       .lab-tool {
         width: 100%;
-        min-height: 52px;
-        font-size: 0.78rem;
+        min-height: 50px;
+        font-size: 0.76rem;
       }
-      .lab-tool .tool-icon { font-size: 1.35rem; }
+      .lab-tool .tool-icon { font-size: 1.3rem; }
       .lab-tool[data-lab="microscope"] { grid-column: 1; grid-row: 2; }
       .lab-tool[data-lab="stain"] { grid-column: 2; grid-row: 2; }
       .lab-tool[data-lab="incubate"] { grid-column: 3; grid-row: 2; }
       .lab-tool[data-lab="inoculate"] { grid-column: 4; grid-row: 2; }
       .lab-quests { font-size: 0.68rem; gap: 4px 6px; }
-      .rue-album:has(.rue-album-thumb) { min-height: 120px; }
+      .rue-album:has(.rue-album-thumb) { min-height: 110px; }
       .rue-album-thumb { width: clamp(50px, 14vw, 64px); }
       .reward-tab {
-        padding: 14px 16px;
-        font-size: 1.1rem;
-        min-height: 48px;
+        padding: 12px 14px;
+        font-size: 1.05rem;
+        min-height: 44px;
       }
       .reward-panel {
         width: 100%;
@@ -590,6 +622,11 @@
       }
     }
 
+    @media (max-width: 520px) {
+      .st-tab { min-height: 38px; font-size: 0.7rem; }
+      .petri-wrap { max-height: min(36svh, 260px); }
+    }
+
     @media (max-width: 500px) {
       .polaroid-pop { width: 110px; padding: 4px 4px 16px; }
     }
@@ -601,7 +638,7 @@
       .game-instructions ol { margin-top: 4px; }
     }
 
-    @media (min-width: 600px) and (min-height: 740px) {
+    @media (min-width: 901px) and (min-height: 740px) {
       .petri-wrap {
         width: min(calc(100vw - 140px), calc(100dvh - var(--game-chrome)), 500px);
       }
@@ -810,7 +847,7 @@
 
   <header class="soundtrack-bar" id="soundtrack-bar">
     <div class="st-header">
-      <span class="st-label">soundtrack of the graduate ♪</span>
+      <span class="st-label">soundtrack<span class="st-label-desk"> of the graduate</span> ♪</span>
       <div class="st-now" id="st-song">From The Start</div>
     </div>
     <div class="st-tabs">
@@ -1376,6 +1413,10 @@
     });
 
     window.addEventListener('resize', updateLayoutMetrics);
+    window.matchMedia('(max-width: 900px)').addEventListener('change', function () {
+      updateLayoutMetrics();
+      if (pondRunning) resizePond();
+    });
     document.querySelector('.game-instructions').addEventListener('toggle', updateLayoutMetrics);
     requestAnimationFrame(updateLayoutMetrics);
 
@@ -1387,39 +1428,107 @@
     var colonies = [];
     var rue = { x: 0, y: 0, vx: 0, vy: 0, angle: 0, scared: 0, size: 20, purr: 0 };
     var dishR = 0;
+    var dishHalfW = 0;
+    var dishHalfH = 0;
     var dishCx = 0;
     var dishCy = 0;
     var incubating = 0;
     var stainPhase = 0;
 
+    function isRectSlide() {
+      return window.matchMedia('(max-width: 900px)').matches;
+    }
+
+    function dishCornerR() {
+      return Math.min(18, dishHalfW * 0.1, dishHalfH * 0.14);
+    }
+
+    function dishRoundedRect(ctx, cx, cy, hw, hh, inset) {
+      inset = inset || 0;
+      hw -= inset;
+      hh -= inset;
+      var r = Math.min(dishCornerR(), hw * 0.35, hh * 0.35);
+      ctx.beginPath();
+      ctx.moveTo(cx - hw + r, cy - hh);
+      ctx.lineTo(cx + hw - r, cy - hh);
+      ctx.arcTo(cx + hw, cy - hh, cx + hw, cy - hh + r, r);
+      ctx.lineTo(cx + hw, cy + hh - r);
+      ctx.arcTo(cx + hw, cy + hh, cx + hw - r, cy + hh, r);
+      ctx.lineTo(cx - hw + r, cy + hh);
+      ctx.arcTo(cx - hw, cy + hh, cx - hw, cy + hh - r, r);
+      ctx.lineTo(cx - hw, cy - hh + r);
+      ctx.arcTo(cx - hw, cy - hh, cx - hw + r, cy - hh, r);
+      ctx.closePath();
+    }
+
+    function dishClip(ctx) {
+      if (isRectSlide()) {
+        dishRoundedRect(ctx, dishCx, dishCy, dishHalfW, dishHalfH, 0);
+      } else {
+        ctx.beginPath();
+        ctx.arc(dishCx, dishCy, dishR, 0, Math.PI * 2);
+      }
+    }
+
+    function inDish(x, y, pad) {
+      pad = pad || 10;
+      if (isRectSlide()) {
+        var hw = dishHalfW - pad, hh = dishHalfH - pad;
+        return Math.abs(x - dishCx) <= hw && Math.abs(y - dishCy) <= hh;
+      }
+      var dx = x - dishCx, dy = y - dishCy;
+      return dx * dx + dy * dy <= (dishR - pad) * (dishR - pad);
+    }
+
     function resizePond() {
       var wrap = document.getElementById('petri-wrap');
-      var sz = Math.floor(wrap.getBoundingClientRect().width);
-      if (sz < 1) return;
-      var prev = pondCanvas.width;
-      var ratio = prev > 0 ? sz / prev : 1;
-      pondCanvas.width = sz;
-      pondCanvas.height = sz;
-      dishR = sz * 0.46;
-      dishCx = sz / 2;
-      dishCy = sz / 2;
+      var bounds = wrap.getBoundingClientRect();
+      var w = Math.floor(bounds.width);
+      var h = Math.floor(bounds.height);
+      if (w < 1) return;
+      var rect = isRectSlide();
+      if (!rect) h = w;
+      var prevW = pondCanvas.width || w;
+      var prevH = pondCanvas.height || h;
+      var scaleX = prevW > 0 ? w / prevW : 1;
+      var scaleY = prevH > 0 ? h / prevH : 1;
+      pondCanvas.width = w;
+      pondCanvas.height = h;
+      dishCx = w / 2;
+      dishCy = h / 2;
+      if (rect) {
+        dishHalfW = w * 0.47;
+        dishHalfH = h * 0.47;
+        dishR = Math.min(dishHalfW, dishHalfH);
+      } else {
+        dishR = w * 0.46;
+        dishHalfW = dishHalfH = dishR;
+      }
       if (colonies.length === 0) {
         initPond();
-      } else if (prev > 0 && Math.abs(ratio - 1) > 0.02) {
-        var ocx = prev / 2, ocy = prev / 2;
+      } else if (Math.abs(scaleX - 1) > 0.02 || Math.abs(scaleY - 1) > 0.02) {
+        var ocx = prevW / 2, ocy = prevH / 2;
+        var scaleR = (scaleX + scaleY) / 2;
         colonies.forEach(function (c) {
-          c.x = dishCx + (c.x - ocx) * ratio;
-          c.y = dishCy + (c.y - ocy) * ratio;
-          c.radius *= ratio;
-          c.maxRadius *= ratio;
+          c.x = dishCx + (c.x - ocx) * scaleX;
+          c.y = dishCy + (c.y - ocy) * scaleY;
+          c.radius *= scaleR;
+          c.maxRadius *= scaleR;
         });
-        rue.x = dishCx + (rue.x - ocx) * ratio;
-        rue.y = dishCy + (rue.y - ocy) * ratio;
+        rue.x = dishCx + (rue.x - ocx) * scaleX;
+        rue.y = dishCy + (rue.y - ocy) * scaleY;
       }
     }
 
     function randomInDish(margin) {
       margin = margin || 16;
+      if (isRectSlide()) {
+        var hw = dishHalfW - margin, hh = dishHalfH - margin;
+        return {
+          x: dishCx + (Math.random() * 2 - 1) * hw,
+          y: dishCy + (Math.random() * 2 - 1) * hh
+        };
+      }
       var r = dishR - margin;
       var a = Math.random() * Math.PI * 2;
       var d = Math.sqrt(Math.random()) * r;
@@ -1524,19 +1633,21 @@
 
     function drawAgar() {
       var w = pondCanvas.width, h = pondCanvas.height;
+      var spreadX = isRectSlide() ? dishHalfW * 0.85 : dishR * 0.7;
+      var spreadY = isRectSlide() ? dishHalfH * 0.85 : dishR * 0.65;
+      var gradR = isRectSlide() ? Math.max(dishHalfW, dishHalfH) : dishR;
       pondCtx.save();
-      pondCtx.beginPath();
-      pondCtx.arc(dishCx, dishCy, dishR, 0, Math.PI * 2);
+      dishClip(pondCtx);
       pondCtx.clip();
-      var ag = pondCtx.createRadialGradient(dishCx, dishCy, 0, dishCx, dishCy, dishR);
+      var ag = pondCtx.createRadialGradient(dishCx, dishCy, 0, dishCx, dishCy, gradR);
       ag.addColorStop(0, '#f7f2dc');
       ag.addColorStop(0.55, '#efe6c8');
       ag.addColorStop(1, '#e2d4b0');
       pondCtx.fillStyle = ag;
       pondCtx.fillRect(0, 0, w, h);
       for (var i = 0; i < 40; i++) {
-        var sx = dishCx + (Math.sin(i * 2.7 + pondTime * 0.2) * dishR * 0.7);
-        var sy = dishCy + (Math.cos(i * 1.9) * dishR * 0.65);
+        var sx = dishCx + (Math.sin(i * 2.7 + pondTime * 0.2) * spreadX);
+        var sy = dishCy + (Math.cos(i * 1.9) * spreadY);
         pondCtx.beginPath();
         pondCtx.arc(sx, sy, 0.6 + (i % 3) * 0.3, 0, Math.PI * 2);
         pondCtx.fillStyle = 'rgba(160,140,100,0.12)';
@@ -1702,9 +1813,24 @@
     }
 
     function clampInDish(ent, pad) {
+      pad = pad || 12;
+      if (isRectSlide()) {
+        var hw = dishHalfW - pad, hh = dishHalfH - pad;
+        var hitX = ent.x < dishCx - hw || ent.x > dishCx + hw;
+        var hitY = ent.y < dishCy - hh || ent.y > dishCy + hh;
+        if (hitX) {
+          ent.x = Math.max(dishCx - hw, Math.min(dishCx + hw, ent.x));
+          if (ent.vx != null) ent.vx *= -0.7;
+        }
+        if (hitY) {
+          ent.y = Math.max(dishCy - hh, Math.min(dishCy + hh, ent.y));
+          if (ent.vy != null) ent.vy *= -0.7;
+        }
+        return;
+      }
       var dx = ent.x - dishCx, dy = ent.y - dishCy;
       var dist = Math.sqrt(dx * dx + dy * dy);
-      var maxD = dishR - (pad || 12);
+      var maxD = dishR - pad;
       if (dist > maxD) {
         ent.x = dishCx + (dx / dist) * maxD;
         ent.y = dishCy + (dy / dist) * maxD;
@@ -1738,8 +1864,7 @@
       }
       drawAgar();
       pondCtx.save();
-      pondCtx.beginPath();
-      pondCtx.arc(dishCx, dishCy, dishR, 0, Math.PI * 2);
+      dishClip(pondCtx);
       pondCtx.clip();
       drawTreats();
       for (var j = 0; j < colonies.length; j++) {
@@ -1762,8 +1887,7 @@
         colonies.push(createColony());
       }
       pondCtx.restore();
-      pondCtx.beginPath();
-      pondCtx.arc(dishCx, dishCy, dishR, 0, Math.PI * 2);
+      dishClip(pondCtx);
       pondCtx.strokeStyle = 'rgba(255,255,255,0.35)';
       pondCtx.lineWidth = 2;
       pondCtx.stroke();
@@ -1799,8 +1923,7 @@
     }
 
     function inoculateAt(cx, cy, silent) {
-      var dx = cx - dishCx, dy = cy - dishCy;
-      if (dx * dx + dy * dy > (dishR - 10) * (dishR - 10)) return false;
+      if (!inDish(cx, cy, 10)) return false;
       colonies.push(createColony(cx, cy, true));
       if (colonies.length > 18) colonies.shift();
       if (!silent) startGradAudio();
